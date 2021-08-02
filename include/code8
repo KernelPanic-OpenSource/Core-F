@@ -1,12 +1,10 @@
 date_default_timezone_set("Asia/Ho_Chi_Minh");
 session_start();
 $ran = rand(1, 5);
-echo "
-\033[0;31m┌─[\033[1;36mKernelPanix\033[0;33m@\033[1;34mCore-F\033[0;31m]─[\033[1;30mCookie-Facebook\033[0;31m]
+echo "\033[0;31m┌─[\033[1;36mKernelPanix\033[0;33m@\033[1;34mCore-F\033[0;31m]─[\033[1;30mCookie-Facebook\033[0;31m]
 └──╼ $ \033[1;37m";
 $cookie = trim(fgets(STDIN));
-echo "
-\033[0;31m┌─[\033[1;36mKernelPanix\033[0;33m@\033[1;34mCore-F\033[0;31m]─[\033[1;30mTime-Delay\033[0;31m]
+echo "\033[0;31m┌─[\033[1;36mKernelPanix\033[0;33m@\033[1;34mCore-F\033[0;31m]─[\033[1;30mTime-Delay\033[0;31m]
 └──╼ $ \033[1;37m";
 $delay = trim(fgets(STDIN));
 
