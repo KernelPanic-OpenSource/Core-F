@@ -36,6 +36,7 @@ while (true) {
 $h1f3="\033[0;31m┌─[\033[1;36mKernelPanix\033[0;33m@\033[1;34mCore-F\033[0;31m]─[\033[1;30mMày vừa chọc\033[0;31m]
 └──╼ $ \033[1;37mID: $oK";
     echo $h1f3;
+    echo " ";
 echo "\033[0;31m┌─[\033[1;36mKernelPanix\033[0;33m@\033[1;34mCore-F\033[0;31m]─[\033[1;30mDelay Tí\033[0;31m]
 └──╼ $ \033[1;37mTime: ";
 for ($time = $delay;$time>=1;$time--) {
