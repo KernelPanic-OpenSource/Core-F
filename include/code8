@@ -4,13 +4,11 @@ $ran = rand(1, 5);
 $trang = "[1;97m";
 $do = "[1;91m";
 $res = "[0;33m";
-$h1f1="
-\033[0;31m┌─[\033[1;36mKernelPanix\033[0;33m@\033[1;34mCore-F\033[0;31m]─[\033[1;30mCookie-Facebook\033[0;31m]
+$h1f1="\033[0;31m┌─[\033[1;36mKernelPanix\033[0;33m@\033[1;34mCore-F\033[0;31m]─[\033[1;30mCookie-Facebook\033[0;31m]
 └──╼ $ \033[1;37m";
 echo $h1f1;
 $cookie = trim(fgets(STDIN));
-$h1f2="
-\033[0;31m┌─[\033[1;36mKernelPanix\033[0;33m@\033[1;34mCore-F\033[0;31m]─[\033[1;30mTime-Delay\033[0;31m]
+$h1f2="\033[0;31m┌─[\033[1;36mKernelPanix\033[0;33m@\033[1;34mCore-F\033[0;31m]─[\033[1;30mTime-Delay\033[0;31m]
 └──╼ $ \033[1;37m";
 echo $h1f2;
 $delay = trim(fgets(STDIN));
@@ -45,9 +43,9 @@ $h1f3="
 echo "
 \033[0;31m┌─[\033[1;36mKernelPanix\033[0;33m@\033[1;34mCore-F\033[0;31m]─[\033[1;30mDelay Tí\033[0;31m]
 └──╼ $ \033[1;37mTime: ";
-for ($time = $delay;$time > - 1;$time--) {
-echo $time;
-sleep(1);
-echo " ";
+for ($time = $delay;$time>=1;$time--) {
+     echo $time;
+     sleep(1);
+     echo " ";
 }
 }
