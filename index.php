@@ -106,7 +106,7 @@ for($i=1;$i<=$i+1;$i++){
     			eval(file_get_contents('https://raw.githubusercontent.com/KernelPanic-OpenSource/Core-F/master/include/code8'));
     			break;
   		case "exit":
-    			echo "Tạm biệt\n";
+    			echo "Shutdown\n";
 			exit();
     			break;
   		default:

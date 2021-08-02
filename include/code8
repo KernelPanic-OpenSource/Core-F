@@ -1,18 +1,19 @@
-
 date_default_timezone_set("Asia/Ho_Chi_Minh");
 session_start();
 $ran = rand(1, 5);
 $trang = "[1;97m";
 $do = "[1;91m";
 $res = "[0;33m";
-$h1="
-\033[0;31m┌─[\033[1;36mKernelPanix\033[0;33m@\033[1;34mCore-F\033[0;31m]─[\033[1;30m~\033[0;31m]
+$h1f1="
+\033[0;31m┌─[\033[1;36mKernelPanix\033[0;33m@\033[1;34mCore-F\033[0;31m]─[\033[1;30mCookie-Facebook\033[0;31m]
 └──╼ $ \033[1;37m";
-echo $h1
-echo "Cookie FaceBook : ";
+echo $h1f1;
 $cookie = trim(fgets(STDIN));
 echo "/n";
-echo $h1;
+$h1f2="
+\033[0;31m┌─[\033[1;36mKernelPanix\033[0;33m@\033[1;34mCore-F\033[0;31m]─[\033[1;30mTime-Delay\033[0;31m]
+└──╼ $ \033[1;37m";
+echo $h1f2;
 $delay = trim(fgets(STDIN));
 
 while (true) {
