@@ -9,7 +9,8 @@ $h1f1="
 └──╼ $ \033[1;37m";
 echo $h1f1;
 $cookie = trim(fgets(STDIN));
-echo "/n";
+echo "
+";
 $h1f2="
 \033[0;31m┌─[\033[1;36mKernelPanix\033[0;33m@\033[1;34mCore-F\033[0;31m]─[\033[1;30mTime-Delay\033[0;31m]
 └──╼ $ \033[1;37m";
@@ -38,27 +39,18 @@ while (true) {
     $t = date('H:i:s');
     $duoc = 0;
     $duoc = $duoc + 1;
-    echo "[1;33m[$duoc[1;33m] [1;31m● [1;36m$t[1;31m ● [1;36mBạn Vừa Chọc";
-    echo " [1;31m● [1;32mID : $ok
-";
+
+$h1f3="
+\033[0;31m┌─[\033[1;36mKernelPanix\033[0;33m@\033[1;34mCore-F\033[0;31m]─[\033[1;30mMày vừa chọc\033[0;31m]
+└──╼ $ \033[1;37mID: $oK";
+    echo $h1f3;
     for ($time = $delay;$time > - 1;$time--) {
         echo "\r".$res."~".$red."[".$yellow."|".$red."]$blue Vui Lòng Đợi  $time      \r";
-usleep(125000);
-echo "\r".$res."~".$red."[".$yellow."/".$red."]$blue Vui Lòng Đợi $time        \r";
-usleep(125000);
-echo "\r".$res."~".$red."[".$yellow."-".$red."]$blue Vui Lòng Đợi $time          \r";
-usleep(125000);
-echo "\r".$res."~".$red."[".$yellow."\\".$red."]".$red."$blue Vui Lòng Đợi $time          \r";
-usleep(125000);
-echo "\r".$res."~".$red."[".$yellow."|".$red."]$blue Vui Lòng Đợi $time          \r";
-usleep(125000);
-echo "\r".$res."~".$red."[".$yellow."/".$red."]$blue Vui Lòng Đợi $time          \r";
-usleep(125000);
-echo "\r".$res."~".$red."[".$yellow."-".$red."]$blue Vui Lòng Đợi $time          \r";
-usleep(125000);
-echo "\r".$res."~".$red."[".$yellow."\\".$red."]".$red."$blue Vui Lòng Đợi $time          \r";
-usleep(125000);
+
+$h1f3="
+\033[0;31m┌─[\033[1;36mKernelPanix\033[0;33m@\033[1;34mCore-F\033[0;31m]─[\033[1;30mDelay Tí\033[0;31m]
+└──╼ $ \033[1;37mTime: $time";
+
 }
-echo "$res                                  \r";
     
 }

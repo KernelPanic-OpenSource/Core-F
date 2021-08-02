@@ -100,12 +100,15 @@ for($i=1;$i<=$i+1;$i++){
     $in1=trim(fgets(STDIN));
 	switch ($in1) {
 		case "help":
+			echo "à thì ra mày cần trợ giúp\n";
 			echo $menu;
     			break;
   		case "2":
+			echo "à thì ra mày thích chọc người khác\n";
     			eval(file_get_contents('https://raw.githubusercontent.com/KernelPanic-OpenSource/Core-F/master/include/code8'));
     			break;
   		case "exit":
+			echo "à thì ra mày chọn cái chết\n";
     			echo "Shutdown\n";
 			exit();
     			break;
