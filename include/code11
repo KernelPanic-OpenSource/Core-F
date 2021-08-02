@@ -1,0 +1,36 @@
+
+error_reporting(1);
+$xanh="\033[1;32m";
+print "Nhập Mã 2fa";
+$t = trim(fgets(STDIN));
+$url = "http://2fa.live/tok/$t";
+$thiet = curl_init();
+curl_setopt_array($thiet, array(
+CURLOPT_URL => "$url",
+CURLOPT_ENCODING => "",
+CURLOPT_RETURNTRANSFER => true,
+CURLOPT_SSL_VERIFYPEER => false,
+CURLOPT_TIMEOUT => 30,
+CURLOPT_CUSTOMREQUEST => "GET",
+CURLOPT_POSTFIELDS => $data,
+CURLOPT_HTTPHEADER => array(
+"Host:2fa.live",
+"Connection:keep-alive",
+"X-Requested-With:XMLHttpRequest",
+"User-Agent:Mozilla/5.0 (Linux; Android 9; Bee 3) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/74.0.3729.136 Mobile Safari/537.36",
+"Referer:http://2fa.live/",
+"Accept-Encoding:gzip, deflate",
+"Accept-Language:vi-VN,vi;q=0.9,fr-FR;q=0.8,fr;q=0.7,en-US;q=0.6,en;q=0.5",
+)));
+$dz = curl_exec($thiet); curl_close($thiet);
+$layma = json_decode($dz,true);
+$tt = $layma["token"];
+    print "mã 2fa của bạn là $tt\n";
+   
+   
+    
+
+
+
+
+

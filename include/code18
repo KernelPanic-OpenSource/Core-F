@@ -1,0 +1,166 @@
+
+error_reporting(0);
+
+eval(base64_decode('CiBmdW5jdGlvbiBsaWtlKCRhY2Nlc3NfdG9rZW4sICRpZCwgJGNvb2tpZSkgeyAkY2ggPSBjdXJsX2luaXQoKTsgY3VybF9zZXRvcHQoJGNoLCBDVVJMT1BUX1VSTCwgIlx4NjhceDc0XDE2NFx4NzBcMTYzXDcyXHgyZlx4MmZcMTQ3XDE2Mlx4NjFceDcwXDE1MFx4MmVceDY2XDE0MVx4NjNcMTQ1XHg2MlwxNTdceDZmXHg2Ylw1NlwxNDNceDZmXDE1NVx4MmYiIC4gJGlkIC4gIlx4MmZceDZjXDE1MVx4NmJcMTQ1XDE2MyIpOyAkaGVhZFtdID0gIlwxMDNcMTU3XHg2ZVwxNTZceDY1XHg2M1wxNjRcMTUxXHg2ZlwxNTZceDNhXDQwXDE1M1x4NjVceDY1XDE2MFx4MmRceDYxXDE1NFx4NjlcMTY2XDE0NSI7ICRoZWFkW10gPSAiXHg0Ylx4NjVceDY1XHg3MFw1NVwxMDFceDZjXDE1MVx4NzZcMTQ1XHgzYVx4MjBceDMzXHgzMFw2MCI7ICRoZWFkW10gPSAiXHg2MVwxNjVceDc0XHg2OFwxNTdcMTYyXHg2OVwxNjRceDc5XDcyXHgyMFwxNTVcNTZcMTQ2XDE0MVx4NjNceDY1XDE0Mlx4NmZcMTU3XHg2Ylx4MmVceDYzXHg2ZlwxNTUiOyAkaGVhZFtdID0gIlx4NjNcMTQzXDE0NVwxNjBcMTY0XHgyZFx4NDNceDY4XDE0MVwxNjJcMTYzXDE0NVx4NzRcNzJceDIwXHg0OVx4NTNceDRmXHgyZFw3MFx4MzhcNjVceDM5XDU1XDYxXDU0XDE2NVx4NzRceDY2XHgyZFx4MzhcNzNceDcxXDc1XHgzMFw1Nlw2N1x4MmNceDJhXDczXDE2MVw3NVx4MzBceDJlXDY3IjsgJGhlYWRbXSA9ICJceDYxXHg2M1x4NjNceDY1XHg3MFwxNjRceDJkXDE1NFx4NjFceDZlXHg2N1wxNjVceDYxXDE0N1wxNDVceDNhXDQwXHg3NlwxNTFcNTVceDU2XDExNlx4MmNcMTY2XHg2OVw3M1x4NzFcNzVcNjBcNTZceDM5XHgyY1wxNDZceDcyXDU1XDEwNlx4NTJceDNiXDE2MVw3NVw2MFw1Nlx4MzhceDJjXDE0NlwxNjJceDNiXDE2MVw3NVx4MzBceDJlXHgzN1x4MmNcMTQ1XDE1Nlw1NVx4NTVceDUzXDczXDE2MVw3NVw2MFx4MmVcNjZceDJjXHg2NVwxNTZcNzNceDcxXHgzZFx4MzBcNTZceDM1IjsgJGhlYWRbXSA9ICJcMTQzXHg2MVwxNDNceDY4XHg2NVw1NVx4NjNceDZmXDE1NlwxNjRceDcyXDE1N1wxNTRceDNhXHgyMFx4NmRcMTQxXHg3OFx4MmRceDYxXHg2N1wxNDVceDNkXHgzMCI7ICRoZWFkW10gPSAiXHg3NVwxNjBceDY3XHg3Mlx4NjFceDY0XHg2NVx4MmRcMTUxXDE1Nlx4NzNceDY1XDE0M1x4NzVceDcyXDE0NVw1NVwxNjJceDY1XHg3MVwxNjVceDY1XDE2M1wxNjRcMTYzXDcyXHgyMFx4MzEiOyAkaGVhZFtdID0gIlwxNDFceDYzXHg2M1x4NjVcMTYwXDE2NFw3Mlx4MjBcMTY0XHg2NVwxNzBcMTY0XDU3XDE1MFwxNjRceDZkXHg2Y1x4MmNcMTQxXHg3MFx4NzBceDZjXDE1MVx4NjNceDYxXDE2NFx4NjlcMTU3XHg2ZVw1N1x4NzhceDY4XHg3NFx4NmRcMTU0XHgyYlwxNzBcMTU1XDE1NFw1NFwxNDFceDcwXDE2MFwxNTRceDY5XHg2M1wxNDFcMTY0XHg2OVx4NmZcMTU2XHgyZlx4NzhcMTU1XHg2Y1w3M1x4NzFcNzVcNjBceDJlXHgzOVx4MmNcMTUxXHg2ZFwxNDFcMTQ3XDE0NVw1N1x4NzdcMTQ1XHg2MlwxNjBceDJjXHg2OVwxNTVcMTQxXDE0N1wxNDVcNTdcMTQxXDE2MFx4NmVcMTQ3XDU0XHgyYVx4MmZcNTJcNzNcMTYxXHgzZFw2MFw1Nlx4MzhcNTRceDYxXHg3MFx4NzBcMTU0XDE1MVx4NjNceDYxXHg3NFwxNTFcMTU3XHg2ZVx4MmZceDczXDE1MVx4NjdceDZlXHg2NVwxNDRceDJkXDE0NVx4NzhcMTQzXHg2OFwxNDFcMTU2XDE0N1wxNDVceDNiXHg3Nlw3NVwxNDJcNjNcNzNcMTYxXDc1XHgzMFx4MmVcNzEiOyAkaGVhZFtdID0gIlwxNjNceDY1XDE0M1w1NVx4NjZceDY1XHg3NFwxNDNceDY4XDU1XHg3M1wxNTFcMTY0XDE0NVx4M2FcNDBcMTU2XDE1N1wxNTZceDY1IjsgJGhlYWRbXSA9ICJceDczXHg2NVwxNDNceDJkXHg2Nlx4NjVcMTY0XDE0M1wxNTBcNTVcMTU1XDE1N1wxNDRcMTQ1XDcyXDQwXHg2ZVx4NjFceDc2XDE1MVwxNDdcMTQxXDE2NFwxNDUiOyAkaGVhZFtdID0gIlwxNjNceDY1XHg2M1x4MmRcMTQ2XDE0NVwxNjRceDYzXDE1MFw1NVwxNjVcMTYzXHg2NVx4NzJcNzJcNDBcNzdcNjEiOyAkaGVhZFtdID0gIlx4NzNcMTQ1XDE0M1w1NVwxNDZcMTQ1XDE2NFx4NjNcMTUwXHgyZFwxNDRceDY1XDE2M1wxNjRcNzJcNDBcMTQ0XDE1N1x4NjNceDc1XHg2ZFx4NjVceDZlXDE2NCI7IGN1cmxfc2V0b3B0KCRjaCwgQ1VSTE9QVF9VU0VSQUdFTlQsICJcMTE1XDE1N1x4N2FcMTUxXHg2Y1x4NmNceDYxXDU3XDY1XHgyZVx4MzBceDIwXDUwXDEyN1wxNTFceDZlXDE0NFx4NmZcMTY3XHg3M1w0MFwxMTZceDU0XHgyMFw2MVw2MFw1Nlw2MFx4M2JcNDBceDU3XDE1MVx4NmVceDM2XDY0XDczXDQwXDE3MFw2Nlw2NFx4MjlcNDBcMTAxXHg3MFx4NzBceDZjXHg2NVwxMjdcMTQ1XDE0MlwxMTNcMTUxXDE2NFw1N1w2NVw2M1w2N1x4MmVceDMzXDY2XDQwXHgyOFwxMTNceDQ4XDEyNFx4NGRcMTE0XDU0XDQwXDE1NFwxNTFceDZiXDE0NVx4MjBceDQ3XDE0NVx4NjNceDZiXHg2Zlw1MVw0MFx4NDNceDY4XHg3MlwxNTdceDZkXDE0NVx4MmZcNzBcNjRceDJlXDYwXHgyZVx4MzRceDMxXHgzNFx4MzdcNTZceDMxXDYzXHgzNVw0MFwxMjNcMTQxXHg2NlwxNDFcMTYyXDE1MVw1N1w2NVw2M1x4MzdcNTZcNjNceDM2Iik7IGN1cmxfc2V0b3B0KCRjaCwgQ1VSTE9QVF9FTkNPRElORywgJycpOyBjdXJsX3NldG9wdCgkY2gsIENVUkxPUFRfQ09PS0lFLCAkY29va2llKTsgY3VybF9zZXRvcHQoJGNoLCBDVVJMT1BUX0hUVFBIRUFERVIsICRoZWFkKTsgY3VybF9zZXRvcHQoJGNoLCBDVVJMT1BUX1JFVFVSTlRSQU5TRkVSLCAxKTsgY3VybF9zZXRvcHQoJGNoLCBDVVJMT1BUX1NTTF9WRVJJRllQRUVSLCBGQUxTRSk7IGN1cmxfc2V0b3B0KCRjaCwgQ1VSTE9QVF9USU1FT1VULCA2MCk7IGN1cmxfc2V0b3B0KCRjaCwgQ1VSTE9QVF9DT05ORUNUVElNRU9VVCwgNjApOyBjdXJsX3NldG9wdCgkY2gsIENVUkxPUFRfRk9MTE9XTE9DQVRJT04sIFRSVUUpOyBjdXJsX3NldG9wdCgkY2gsIENVUkxPUFRfSFRUUEhFQURFUiwgYXJyYXkoIlx4NDVceDc4XHg3MFx4NjVceDYzXDE2NFx4M2EiKSk7ICRkYXRhID0gYXJyYXkoIlx4NjFcMTQzXHg2M1wxNDVceDczXDE2M1wxMzdceDc0XDE1N1wxNTNceDY1XHg2ZSIgPT4gJGFjY2Vzc190b2tlbik7IGN1cmxfc2V0b3B0KCRjaCwgQ1VSTE9QVF9QT1NULCBjb3VudCgkZGF0YSkpOyBjdXJsX3NldG9wdCgkY2gsIENVUkxPUFRfUE9TVEZJRUxEUywgJGRhdGEpOyAkYWNjZXNzID0gY3VybF9leGVjKCRjaCk7IGN1cmxfY2xvc2UoJGNoKTsgcmV0dXJuIGpzb25fZGVjb2RlKCRhY2Nlc3MpOyB9IA=='));
+echo "[1;37m- - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+";
+echo " [1;32m Tài khoản TangLikeFree : ";
+$user = trim(fgets(STDIN));
+echo " [1;32m Mật khẩu TangLikeFree : ";
+$pass = trim(fgets(STDIN));
+$login = '{
+  "username": "' . $user . '",
+  "password": "' . $pass . '",
+  "disable": true
+}';
+$head = array("Host: tanglikefree.com", "Connection: keep-alive", "Content-Length: " . strlen($login), "Accept: application/json, text/plain, */*", "X-Requested-With: XMLHttpRequest", "Save-Data: on", "Content-Type: application/json;charset=UTF-8", "Origin: https://tanglikefree.com", "Sec-Fetch-Site: same-origin", "Sec-Fetch-Mode: cors", "Sec-Fetch-Dest: empty", "Referer: https://tanglikefree.com/", "Accept-Encoding: gzip, deflate, br", "Accept-Language: vi");
+$ch = curl_init();
+curl_setopt_array($ch, array(CURLOPT_RETURNTRANSFER => 1, CURLOPT_URL => 'https://tanglikefree.com/api/auth/login', CURLOPT_FOLLOWLOCATION => TRUE, CURLOPT_RETURNTRANSFER => 1, CURLOPT_POST => 1, CURLOPT_USERAGENT => 'Mozilla/5.0 (Linux; Android 10; Redmi Note 8 Pro) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/85.0.4183.127 Mobile Safari/537.36', CURLOPT_POSTFIELDS => $login, CURLOPT_SSL_VERIFYPEER => 0, CURLOPT_HTTPHEADER => $head, CURLOPT_ENCODING => TRUE,));
+$a = curl_exec($ch);
+curl_close($ch);
+preg_match('#"error":(.+?),"#is', $a, $xem);
+$source = $xem["1"];
+preg_match('#"access_token":"(.+?)"#is', $a, $x);
+$token = $x["1"];
+$js = json_decode($a, true);
+$mess = $js["messages"];
+@system('clear');
+if ($source == 'false') {
+    echo "   [1;32mĐăng Nhập Thành Công !!!!
+";
+} else {
+    echo "[1;31m $mess !!!
+";
+    exit();
+}
+echo "[1;37m- - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+";
+date_default_timezone_set('Asia/Ho_Chi_Minh');
+echo "[1;32m Nhập Token Facebook : ";
+$access_token = trim(fgets(STDIN));
+if (json_decode(file_get_contents('https://graph.facebook.com/me/?access_token=' . $access_token))->{'id'}) {
+} else {
+    echo "[1;31m Token Die 
+";
+    exit();
+}
+$idfb = json_decode(file_get_contents('https://graph.facebook.com/me/?access_token=' . $access_token))->{'id'};
+$namefb = json_decode(file_get_contents('https://graph.facebook.com/me/?access_token=' . $access_token))->{'name'};
+$url = "https://tanglikefree.com/api/auth/user";
+$ch = curl_init();
+curl_setopt_array($ch, array(CURLOPT_PORT => "443", CURLOPT_URL => "$url", CURLOPT_RETURNTRANSFER => true, CURLOPT_ENCODING => "", CURLOPT_SSL_VERIFYPEER => true, CURLOPT_TIMEOUT => 30, CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1, CURLOPT_CUSTOMREQUEST => "GET", CURLOPT_HTTPHEADER => array("Authorization:Bearer " . $token)));
+$aa = curl_exec($ch);
+curl_close($ch);
+preg_match('#"VND":(.+?),"web"#is', $aa, $xu);
+$vnd = $xu["1"];
+@system('clear');
+echo "[1;37m- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+";
+echo "[1;37m~[1;31m[[1;32m✓[1;31m][1;37m => [1;33mTool Auto TangLikeFree Token Facebook
+";
+echo "[1;37m~[1;31m[[1;32m✓[1;31m][1;37m => [1;32mBản Quyền: [1;33mNM Thiết
+";
+
+echo "[1;37m~[1;31m[[1;32m✓[1;31m][1;37m => [1;32mMua Code Hoặc Donate Tool
+";
+echo "[1;37m~[1;31m[[1;32m✓[1;31m][1;37m => [1;31mVí momo[1;33m: [1;34m0377227176
+";
+echo "[1;37m- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+";
+echo "[1;37m~[1;31m[[1;32m✓[1;31m][1;37m => [1;32mĐang Tool Cho ID : [1;35m$idfb
+";
+echo "[1;37m~[1;31m[[1;32m✓[1;31m][1;37m => [1;32mTên Tài Khoản : [1;35m$namefb
+";
+echo "[1;37m- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+";
+echo "[1;37m~[1;31m[[1;32m✓[1;31m][1;37m => [1;32mDelay Like : [1;35m";
+$timelike = trim(fgets(STDIN));
+echo "[1;37m- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+";
+echo "[1;37m~ [1;32m Vui Lòng Đợi Một Chút
+";
+while (true) {
+    $url = "https://tanglikefree.com/api/auth/Post/getpost";
+    $ch = curl_init();
+    curl_setopt_array($ch, array(CURLOPT_PORT => "443", CURLOPT_URL => "$url", CURLOPT_RETURNTRANSFER => true, CURLOPT_ENCODING => "", CURLOPT_SSL_VERIFYPEER => true, CURLOPT_TIMEOUT => 30, CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1, CURLOPT_CUSTOMREQUEST => "GET", CURLOPT_HTTPHEADER => array("Host: tanglikefree.com", "Connection: keep-alive", "Accept: application/json, text/plain, */*", "X-Requested-With: XMLHttpRequest", "Authorization: Bearer " . $token, "User-Agent: Mozilla/5.0 (Linux; Android 10; Redmi Note 8 Pro) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/85.0.4183.127 Mobile Safari/537.36", "Referer: https://tanglikefree.com/makemoney", "Accept-Encoding: gzip, deflate, br", "Accept-Language: vi-VN,vi;q=0.9,fr-FR;q=0.8,fr;q=0.7,en-US;q=0.6,en;q=0.5")));
+    $data = curl_exec($ch);
+    curl_close($ch);
+    $json = json_decode($data, true);
+    if (is_array($json)) {
+        foreach ($json as $json) {
+            $id = $json["idpost"];
+            if ($id < '1') {
+                echo "[1;37m~ [1;32mTạm Thời Hết Job LIKE !!! 
+";
+            } else {
+                $g = like($access_token, $id, $cookie);
+                if ($g->{'error'}->{'code'} == 368) {
+                    echo " Đã Bị Block Like ! 
+";
+                }
+                if ($g->{'error'}->{'code'} == 190) {
+                    echo "
+[1;37m~ [1;31mToken Die ! 
+";
+                    exit();
+                }
+                $url = "https://tanglikefree.com/api/auth/creat_request";
+                $ch = curl_init();
+                curl_setopt_array($ch, array(CURLOPT_PORT => "443", CURLOPT_URL => "$url", CURLOPT_RETURNTRANSFER => true, CURLOPT_ENCODING => "", CURLOPT_SSL_VERIFYPEER => true, CURLOPT_TIMEOUT => 30, CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1, CURLOPT_CUSTOMREQUEST => "GET", CURLOPT_HTTPHEADER => array("Authorization:Bearer " . $token)));
+                $a = curl_exec($ch);
+                curl_close($ch);
+                $js = json_decode($a);
+                $requests = $js->{'request_id'};
+                $url = "https://tanglikefree.com/api/auth/Post/submitpost";
+                $data = '{
+  "idpost": "' . $id . '",
+  "request_id": "' . $requests . '"
+}';
+                $head = array("Host: tanglikefree.com", "Connection: keep-alive", "Content-Length: " . strlen($data), "Accept: application/json, text/plain, */*", "Origin: https://tanglikefree.com", "X-Requested-With: XMLHttpRequest", "Authorization: Bearer " . $token, "User-Agent: Mozilla/5.0 (Linux; Android 10; Redmi Note 8 Pro) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/85.0.4183.127 Mobile Safari/537.36", "Content-Type: application/json;charset=UTF-8", "Referer: https://tanglikefree.com/makemoney", "Accept-Encoding: gzip, deflate, br", "Accept-Language: vi-VN,vi;q=0.9,fr-FR;q=0.8,fr;q=0.7,en-US;q=0.6,en;q=0.5");
+                $ch = curl_init();
+                curl_setopt_array($ch, array(CURLOPT_URL => $url, CURLOPT_FOLLOWLOCATION => TRUE, CURLOPT_RETURNTRANSFER => 1, CURLOPT_POST => 1, CURLOPT_POSTFIELDS => $data, CURLOPT_SSL_VERIFYPEER => 0, CURLOPT_HTTPHEADER => $head, CURLOPT_ENCODING => TRUE));
+                $a = curl_exec($ch);
+                curl_close($ch);
+                preg_match('#"error":(.+?),"#is', $a, $sd);
+                $true = $sd["1"];
+                $jso = json_decode($a, true);
+                $msg = $jso["messages"];
+                if ($true == 'false') {
+                    $vnd+= 40;
+                    $t = date('H:i');
+                    $duoc = $duoc + 1;
+                    echo "[1;33m[$duoc[1;33m] [1;31m● [1;36m$t[1;31m ● [1;3" . $rd . "mLIKE ";
+                    usleep(130000);
+                    echo "[1;31m● [1;32m" . $id . " ";
+                    usleep(130000);
+                    echo "[1;31m● [1;32m+40 ";
+                    usleep(130000);
+                    echo "[1;31m● [1;32m$vnd Coin
+";
+                    for ($x = $timelike;$x--;$x) {
+                        echo "\r\033[1;93m   (◕︵◕)\033[1;91m ~>       \033[1;92m L      \033[1;91m |\033[1;93m $x\033[1;91m | ";
+        usleep(100000);
+
+        echo "\r\033[1;91m   (◕︵◕)\033[0;33m   ~>     \033[0;37m LO     \033[0;31m |\033[0;33m $x\033[0;31m | ";
+        usleep(100000);
+        echo "\r\033[1;92m   (◕︵◕)\033[0;33m     ~>   \033[0;37m LOA    \033[0;31m |\033[0;33m $x\033[0;31m | ";
+        usleep(100000);
+        echo "\r\033[1;94m   (◕︵◕)\033[0;33m       ~> \033[0;37m LOAD   \033[0;31m |\033[0;33m $x\033[0;31m | ";
+        usleep(100000);
+        echo "\r\033[1;95m   (◕︵◕)\033[0;33m        ~>\033[0;37m LOAD.  \033[0;31m |\033[0;33m $x\033[0;31m | ";
+        usleep(100000);
+        echo "\r\033[1;95m   (◕︵◕)\033[0;33m        ~>\033[0;37m LOAD.. \033[0;31m |\033[0;33m $x\033[0;31m | ";
+        usleep(100000);
+        echo "\r\033[1;95m   (◕︵◕)\033[0;33m        ~>\033[0;37m LOAD...\033[0;31m |\033[0;33m $x\033[0;31m | ";
+        usleep(10000);
+        echo "\r                                          \r";
+                        
+                    }
+                } else {
+                    echo "[1;37m~ [1;31m[[1;33mLike[1;31m] [1;31m$msg
+";
+                }
+            }
+        }
+    }
+}

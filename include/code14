@@ -1,0 +1,428 @@
+
+error_reporting(0);
+session_start();
+	$green="\033[1;32m";
+$wait = $green."WAIT";
+$res="\033[0m";
+$red="\033[1;31m";
+$yellow="\033[0;93m";
+$lightblue="\033[1;35m";
+$bluelight="\033[1;34m";
+$dem=0;
+if (!file_exists('cookiesl2l.txt')){
+	$k = fopen("cookiesl2l.txt","a+");
+	}
+$blue="\033[1;36m";
+error_reporting(0);
+$purple="\e[35m";
+
+date_default_timezone_set("Asia/Ho_Chi_Minh");
+//login
+@system('clear');
+echo $green."Vui Lòng Thêm CookieFB Vào File cookiesl2l.txt (Mỗi Cookie 1 Dòng)\n";
+if (!file_exists('cookiesl2l.txt')){
+	exit();
+	}else{
+		$js = fread(fopen("cookiesl2l.txt","r"),filesize("cookiesl2l.txt"));
+		if (empty($js)){
+
+			exit();
+			}
+$jsdec    = explode(PHP_EOL,$js);
+$count=count($jsdec);
+		}
+@system('clear');
+echo "$banner\n";
+for ($makep=27;$makep > 0;$makep--){
+echo $res."-";
+usleep(2500);
+echo $red."-";
+}
+echo "\n";
+echo "$res ~".$red."[".$green."✓".$red."]".$res." =>".$green." Tool Auto Like2Like Đa Luồng\n";
+echo "$res ~".$red."[".$green."✓".$red."]".$res." =>".$bluelight." Bản Quyền : HTK GAME MOBILE\n";
+echo "$res ~".$red."[".$green."✓".$red."]".$res." =>".$yellow." Facebook : \n";
+echo "$res ~".$red."[".$green."✓".$red."]".$res." =>".$green." Donate Lấy Động Lực Làm Tool\n";
+echo "$res ~".$red."[".$green."✓".$red."]".$res." =>".$red." Ví MoMo : ".$bluelight."0365769836\n";
+for ($makep=27;$makep > 0;$makep--){
+echo $res."-";
+usleep(2500);
+echo $red."-";
+}
+echo "\n";
+echo "$res ~".$red."[".$green."✓".$red."]".$res." =>".$green." Tài Khoản:$lightblue ".count($jsdec)."$green Tài Khoản\n";
+for ($makep=27;$makep > 0;$makep--){
+echo $res."-";
+usleep(2500);
+echo $red."-";
+}
+echo "\n";
+echo "$res ~".$red."[".$green."✓".$red."]".$res." =>".$green." Nhập [1] Nhiệm Vụ Like Page\n";
+echo "$res ~".$red."[".$green."✓".$red."]".$res." =>".$green." Nhập [2] Nhiệm Vụ Like Post\n";
+echo "$res ~".$red."[".$green."✓".$red."]".$res." =>".$green." Nhập [3] Nhiệm Vụ Join Group\n";
+echo "$res ~".$red."[".$green."✓".$red."]".$res." =>".$green." Nhập [4] Nhiệm Vụ Like Page & Post\n";
+echo "$res ~".$red."[".$green."✓".$red."]".$res." =>".$green." Nhập [5] Nhiệm Vụ Like Page & Join Group\n";
+echo "$res ~".$red."[".$green."✓".$red."]".$res." =>".$green." Nhập [6] Nhiệm Vụ Like Post & Group\n";
+echo "$res ~".$red."[".$green."✓".$red."]".$res." =>".$green." Nhập [7] Nhiệm Vụ Like Post & Group & Page\n";
+echo "$res ~".$red."[".$green."✓".$red."]".$res." =>".$green." Nhập Số : ";
+$c=trim(fgets(STDIN));
+if ($c=="1"){
+$nhiemvu="https://like2like.org/api/request/load_job?filter=page";}
+if ($c=="2"){
+$nhiemvu="https://like2like.org/api/request/load_job?filter=post";}
+if ($c=="3"){
+$nhiemvu="https://like2like.org/api/request/load_job?filter=group";}
+if ($c=="4"){
+$nhiemvu="https://like2like.org/api/request/load_job?filter=page,post";
+}
+if ($c=="5"){
+$nhiemvu="https://like2like.org/api/request/load_job?filter=page,group";
+}
+if ($c=="6"){
+$nhiemvu="https://like2like.org/api/request/load_job?filter=post,group";
+}
+if ($c=="7"){
+$nhiemvu="https://like2like.org/api/request/load_job?filter=post,group,page";
+}
+echo "$res ~".$red."[".$green."✓".$red."]".$res." =>".$green." Nhập Time Delay : ";
+$delay=trim(fgets(STDIN));
+echo "$res ~".$red."[".$green."✓".$red."]".$res." =>".$green." Sau Bao Nhiêu Job Thì Đổi Nick : ";
+$jobsck=trim(fgets(STDIN));
+for ($makep=27;$makep > 0;$makep--){
+echo $res."-";
+usleep(2500);
+echo $red."-";
+}
+echo "\n";
+while(true){
+	foreach ($jsdec as $cookie){
+		$chuyenacc=0;
+		
+		$url="https://m.facebook.com/v9.0/dialog/oauth?app_id=819999065506900&cbt=1611120192120&channel_url=https%3A%2F%2Fstaticxx.facebook.com%2Fx%2Fconnect%2Fxd_arbiter%2F%3Fversion%3D46%23cb%3Df3b794ab6540a38%26domain%3Dlike2like.org%26origin%3Dhttps%253A%252F%252Flike2like.org%252Ff1ef006f63d561%26relation%3Dopener&client_id=819999065506900&display=touch&domain=like2like.org&e2e=%7B%7D&fallback_redirect_uri=https%3A%2F%2Flike2like.org%2Flogin&locale=en_US&logger_id=f183ed5a8f5ff04&origin=2&redirect_uri=https%3A%2F%2Fstaticxx.facebook.com%2Fx%2Fconnect%2Fxd_arbiter%2F%3Fversion%3D46%23cb%3Df1bc693fd8bbb9%26domain%3Dlike2like.org%26origin%3Dhttps%253A%252F%252Flike2like.org%252Ff1ef006f63d561%26relation%3Dopener%26frame%3Df3179a51cb2c3e4&response_type=token%2Csigned_request%2Cgraph_domain&sdk=joey&version=v9.0";
+		$ch = @curl_init();
+curl_setopt($ch, CURLOPT_URL, $url);
+$head[] = "Connection: keep-alive";
+$head[] = "Keep-Alive: 300";
+$head[] = "Accept-Charset: ISO-8859-1,utf-8;q=0.7,*;q=0.7";
+$head[] = "Accept-Language: en-us,en;q=0.5";
+curl_setopt($ch, CURLOPT_USERAGENT, 'Mozilla/5.0 (Linux; Android 10; Redmi Note 7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/77.0.3865.92 Mobile Safari/537.36');
+curl_setopt($ch, CURLOPT_ENCODING, '');
+curl_setopt($ch, CURLOPT_COOKIE, $cookie);
+curl_setopt($ch, CURLOPT_HTTPHEADER, $head);
+curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, FALSE);
+curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, FALSE);
+curl_setopt($ch, CURLOPT_TIMEOUT, 60);
+curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, 60);
+curl_setopt($ch, CURLOPT_FOLLOWLOCATION, TRUE);
+curl_setopt($ch, CURLOPT_HTTPHEADER, array('Expect
+:'));
+$page = curl_exec($ch);
+$acc=explode('&graph_domain=facebook&access_token=', $page);
+$access_token=explode('&', $acc[1])[0];
+$exp=explode('&expires_in=', $page);
+$expireIn=explode('"', $exp[1])[0];
+$signed=explode('&signed_request=', $page);
+$signedRequest=explode('&', $signed[1])[0];
+$data_access=explode('&data_access_expiration_time=', $page);
+$data_access_expiration_time=explode('&', $data_access[1])[0];
+$data='{"accessToken":"'.$access_token.'","expiresIn":'.$expireIn.',"signedRequest":"'.$signedRequest.'","graphDomain":"facebook","data_access_expiration_time":'.$data_access_expiration_time.',"type":"facebook_login"}';
+//Login
+		$mr = curl_init();
+curl_setopt_array($mr, array(
+  CURLOPT_URL =>"https://like2like.org/api/login",
+  CURLOPT_ENCODING => "",
+  CURLOPT_RETURNTRANSFER => true,
+  CURLOPT_SSL_VERIFYPEER => false,
+  CURLOPT_TIMEOUT => 30,
+  CURLOPT_CUSTOMREQUEST => "POST",
+  CURLOPT_POSTFIELDS => $data,
+  CURLOPT_HTTPHEADER => array(
+    'Host:like2like.org',
+    'accept:application/json, text/plain, */*',
+    'authorization:null',
+    'user-agent:Mozilla/5.0 (Linux; Android 10; RMX1929) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/84.0.4147.105 Mobile Safari/537.36',
+    'content-type:application/json;charset=UTF-8',
+    'referer:https://like2like.org/login')));
+$mr2 = curl_exec($mr); curl_close($mr);
+$json = json_decode($mr2,true);
+$author=$json["token"];
+$head_l=array(
+  'Host:like2like.org',
+  'Connection:keep-alive',
+  'Accept:application/json, text/plain, */*',
+  'authorization:'.$author,
+  'content-type:application/json;charset=UTF-8',
+  'User-Agent:Mozilla/5.0 (Linux; Android 10; RMX1929) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/84.0.4147.105 Mobile Safari/537.36',);
+		//Do
+$mr = curl_init();
+curl_setopt_array($mr, array(
+  CURLOPT_URL =>"https://like2like.org/api/user/me",
+  CURLOPT_ENCODING => "",
+  CURLOPT_RETURNTRANSFER => true,
+  CURLOPT_SSL_VERIFYPEER => false,
+  CURLOPT_TIMEOUT => 60,
+  CURLOPT_CUSTOMREQUEST => "GET",
+  CURLOPT_HTTPHEADER => $head_l));
+$mr2 = curl_exec($mr); curl_close($mr);
+$json = json_decode($mr2,true);
+$name = $json['facebook']['name'];
+$idname = $json['facebook']['name'];
+$vi = $json['wallet']['points'];
+$vi2 = $json['wallet']['bonus'];
+if (!empty($name)){
+echo $res."~ ".$green."User : $name\n";
+echo $res."~ ".$green."Số Dư : $vi OBB\n";
+echo $res."~ ".$green."Bonus : $vi2 OBB\n";
+for ($makep=38;$makep > 0;$makep--){
+echo $res."-";
+usleep(2500);
+echo $red."-";
+}
+echo "\n";
+while (true){
+	if ($chuyenacc==$jobsck){
+		$chuyenacc=0;
+	echo $res."~ ".$green."Đã Làm $yellow$jobsck ".$green."Nhiệm Vụ\n";
+	for ($makep=38;$makep > 0;$makep--){
+echo $res."-";
+usleep(2500);
+echo $red."-";
+}
+echo "\n";
+break;
+	}else{
+$mr = curl_init();
+curl_setopt_array($mr, array(
+  CURLOPT_URL => $nhiemvu,
+  CURLOPT_ENCODING => "",
+  CURLOPT_RETURNTRANSFER => true,
+  CURLOPT_SSL_VERIFYPEER => false,
+  CURLOPT_TIMEOUT => 30,
+  CURLOPT_CUSTOMREQUEST => "GET",
+  CURLOPT_HTTPHEADER => $head_l));
+$mr2 = curl_exec($mr); curl_close($mr);
+$json = json_decode($mr2);
+if ($mr2=='[]'){
+	echo $res."~ ".$green."Hết Nhiệm Vụ\n";
+	
+	for ($makep=38;$makep > 0;$makep--){
+echo $res."-";
+usleep(2500);
+echo $red."-";
+}
+echo "\n";
+	break;
+}else{
+foreach($json as $key){
+	if ($chuyenacc==$jobsck){
+
+break;
+	}else{
+$_id=$key -> {"_id"};
+$type=$key -> {"type"};
+$data='{"jobId":"'.$_id.'"}';
+$mr = curl_init();
+curl_setopt_array($mr, array(
+  CURLOPT_URL =>"https://like2like.org/api/request/job_detail",
+  CURLOPT_ENCODING => "",
+  CURLOPT_RETURNTRANSFER => true,
+  CURLOPT_SSL_VERIFYPEER => false,
+  CURLOPT_TIMEOUT => 30,
+  CURLOPT_CUSTOMREQUEST => "POST",
+  CURLOPT_POSTFIELDS => $data,
+  CURLOPT_HTTPHEADER => $head_l));
+$mr2 = curl_exec($mr); curl_close($mr);
+$json = json_decode($mr2,true);
+$url1=$json["url"];
+$cost=$json ["cost"];
+$url=explode("facebook.com/",$url1)[1];
+$url_job='https://mbasic.facebook.com/'.$url;
+$head_fb=array(
+  "Host:mbasic.facebook.com",
+  "cache-control:max-age=0",
+  "upgrade-insecure-requests:1",
+  "save-data:on",
+  "user-agent:Mozilla/5.0 (Linux; Android 10; RMX1929) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/84.0.4147.105 Mobile Safari/537.36",
+  "accept:text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9",
+  "sec-fetch-site:cross-site",
+  "sec-fetch-mode:navigate",
+  "sec-fetch-user:?1",
+  "sec-fetch-dest:document",
+  "accept-language:vi-VN,vi;q=0.9,fr-FR;q=0.8,fr;q=0.7,en-US;q=0.6,en;q=0.5",
+  "cookie:".$cookie);
+if ($type == "post"){
+$linkid='https://mbasic.facebook.com/'.$url;
+$ch = @curl_init();
+curl_setopt($ch, CURLOPT_URL, $linkid);
+$head[] = "Connection: keep-alive";
+$head[] = "Keep-Alive: 300";
+$head[] = "Accept-Charset: ISO-8859-1,utf-8;q=0.7,*;q=0.7";
+$head[] = "Accept-Language: en-us,en;q=0.5";
+curl_setopt($ch, CURLOPT_USERAGENT, 'Mozilla/5.0 (Linux; Android 10; Redmi Note 7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/77.0.3865.92 Mobile Safari/537.36');
+curl_setopt($ch, CURLOPT_ENCODING, '');
+curl_setopt($ch, CURLOPT_COOKIE, $cookie);
+curl_setopt($ch, CURLOPT_HTTPHEADER, $head);
+curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, FALSE);
+curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, FALSE);
+curl_setopt($ch, CURLOPT_TIMEOUT, 60);
+curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, 60);
+curl_setopt($ch, CURLOPT_FOLLOWLOCATION, TRUE);
+curl_setopt($ch, CURLOPT_HTTPHEADER, array('Expect
+:'));
+$page = curl_exec($ch);
+if (strpos($page, "xs=deleted") == true) {
+        exit("$res ~".$yellow."[".$red."×".$yellow."]".$res." =>".$red." Die Cookie !!!\n");
+}
+preg_match('#href="/a/like.php?(.+?)"#is', $page, $_link);
+$link= html_entity_decode('https://mbasic.facebook.com/a/like.php'.$_link[1]);
+curl_setopt($ch, CURLOPT_URL, $link);
+curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+curl_exec($ch);
+curl_close($ch);
+}
+elseif ($type=="page"){
+$ch = curl_init();
+curl_setopt_array ($ch, array (
+CURLOPT_URL => $url_job,
+CURLOPT_FOLLOWLOCATION => false,
+CURLOPT_RETURNTRANSFER => 1,
+CURLOPT_POST => 1,
+CURLOPT_HTTPGET => true,
+CURLOPT_COOKIE => $cookie,
+CURLOPT_SSL_VERIFYPEER => 0,
+CURLOPT_HTTPHEADER => $head_fb,
+CURLOPT_HEADER => true,
+CURLOPT_ENCODING => TRUE));
+$data = curl_exec($ch);
+$tìm =explode("/a/profile.php?",$data);
+sleep(2);
+$tìm1=explode('"',$tìm[1]);
+$url_like="https://mbasic.facebook.com/a/profile.php?".htmlspecialchars_decode($tìm1[0]);
+$ch = curl_init();
+curl_setopt_array ($ch, array (
+CURLOPT_URL => $url_like,
+CURLOPT_FOLLOWLOCATION => false,
+CURLOPT_RETURNTRANSFER => 1,
+CURLOPT_POST => 1,
+CURLOPT_HTTPGET => true,
+CURLOPT_SSL_VERIFYPEER => 0,
+CURLOPT_HTTPHEADER => $head_fb,
+CURLOPT_COOKIE => $cookie,
+CURLOPT_HEADER => true,
+CURLOPT_ENCODING => TRUE));
+$data = curl_exec($ch);  
+if (strpos($data,"xs=deleted") == true){
+exit( $red."Cookie die rồi\n");
+}
+
+}
+else{$ch = curl_init();
+curl_setopt_array ($ch, array (
+CURLOPT_URL => $url_job,
+CURLOPT_FOLLOWLOCATION => false,
+CURLOPT_RETURNTRANSFER => 1,
+CURLOPT_POST => 1,
+CURLOPT_HTTPGET => true,
+CURLOPT_SSL_VERIFYPEER => 0,
+CURLOPT_HTTPHEADER => $head_fb,
+CURLOPT_COOKIE => $cookie,
+CURLOPT_HEADER => true,
+CURLOPT_ENCODING => TRUE));
+$data = curl_exec($ch);
+if (strpos($data,"xs=deleted") == true){
+exit( $red."Cookie die rồi\n");
+}
+$tìm =explode("/a/group/join/?",$data);
+$tìm1=explode('"',$tìm[1]);
+$fb=explode('name="fb_dtsg" value="',$data);
+$fb=explode('"',$fb[1]);
+$fbdtsg=htmlspecialchars_decode($fb[0]);
+$jaz=explode('name="jazoest" value="',$data);
+$jaz=explode('"',$jaz[1]);
+$url="https://mbasic.facebook.com/a/group/join/?".htmlspecialchars_decode($tìm1[0]);
+$data="fb_dtsg=$fbdtsg&jazoest=".$jaz[0];
+$ch = curl_init();
+curl_setopt_array ($ch, array (
+CURLOPT_URL => $url,
+CURLOPT_FOLLOWLOCATION => false,
+CURLOPT_RETURNTRANSFER => 1,
+CURLOPT_POST => 1,
+CURLOPT_HTTPGET => true,
+CURLOPT_SSL_VERIFYPEER => 0,
+CURLOPT_HTTPHEADER => $head_fb,
+CURLOPT_POSTFIELDS => $data,
+CURLOPT_COOKIE => $cookie,
+CURLOPT_HEADER => true,
+CURLOPT_ENCODING => TRUE));
+$data = curl_exec($ch);  
+if (strpos($data,"xs=deleted") == true){
+exit( $red."Cookie die rồi\n");
+}
+}
+
+
+//nhan tien
+$data = '{"postId":"'.$_id.'"}';
+$mr = curl_init();
+curl_setopt_array($mr, array(
+  CURLOPT_URL =>"https://like2like.org/api/request/like_post",
+  CURLOPT_ENCODING => "",
+  CURLOPT_RETURNTRANSFER => true,
+  CURLOPT_SSL_VERIFYPEER => false,
+  CURLOPT_TIMEOUT => 30,
+  CURLOPT_CUSTOMREQUEST => "POST",
+  CURLOPT_POSTFIELDS => $data,
+  CURLOPT_HTTPHEADER => $head_l));
+$mr2 = curl_exec($mr); curl_close($mr);
+$json = json_decode($mr2,true);
+$success=$json["success"];
+if ($success==true){
+  $tien = $cost * 0.88;
+  $chuyenacc++;
+  $job++;
+  if ($type=="post"){ $type = 'Like bài viết Facebook';}
+  elseif ($type=="page"){ $type = 'Like Fanpage';}
+  else{$type = 'Tham gia Group Facebook';}
+  $dem++;
+echo $res."~".$red."[".$blue.date("h:i").$red."][".$green."JOB".$red."]".$res." =>".$green." $type".$red."\n";
+echo $res."~".$red."[".$blue.date("h:i").$red."][".$green."LINK".$red."]".$res." =>".$green." ".$url_job.$red."\n";
+echo $res."~".$red."[".$blue.date("h:i").$red."][".$green."TIỀN JOB".$red."]".$res." =>".$green." +".$tien." OBB".$red."\n";
+echo $res."~".$red."[".$blue.date("h:i").$red."][".$green."TOOL".$red."]".$res." =>".$green." Đã Gửi Thông Tin Lên Hệ Thống Xét Duyệt OBB , Đã Làm $dem Job Trong Hôm Nay".$red."\n";
+echo $res."~".$red."[".$blue.date("h:i").$red."][".$green."SỐ DƯ".$red."]".$res." =>".$green." $vi OBB".$red."\n";
+echo $res."~".$red."[".$blue.date("h:i").$red."][".$green."BONUS".$red."]".$res." =>".$green." $vi2 OBB".$red."\n";
+  }
+    for ($makep=38;$makep > 0;$makep--){
+echo $res."-";
+usleep(2500);
+echo $red."-";
+}
+echo "\n";
+ echo "\n";
+ if ($chuyenacc==$jobsck){
+break;
+	}else{
+for ($time=$delay;$time>-1;$time--)
+{
+echo "\r".$res."~".$red."[".$yellow."|".$red."]$blue Vui Lòng Đợi  $time      \r";
+usleep(125000);
+echo "\r".$res."~".$red."[".$yellow."/".$red."]$blue Vui Lòng Đợi $time        \r";
+usleep(125000);
+echo "\r".$res."~".$red."[".$yellow."-".$red."]$blue Vui Lòng Đợi $time          \r";
+usleep(125000);
+echo "\r".$res."~".$red."[".$yellow."\\".$red."]".$red."$blue Vui Lòng Đợi $time          \r";
+usleep(125000);
+echo "\r".$res."~".$red."[".$yellow."|".$red."]$blue Vui Lòng Đợi $time          \r";
+usleep(125000);
+echo "\r".$res."~".$red."[".$yellow."/".$red."]$blue Vui Lòng Đợi $time          \r";
+usleep(125000);
+echo "\r".$res."~".$red."[".$yellow."-".$red."]$blue Vui Lòng Đợi $time          \r";
+usleep(125000);
+echo "\r".$res."~".$red."[".$yellow."\\".$red."]".$red."$blue Vui Lòng Đợi $time          \r";
+usleep(125000);
+echo "\r                                          \r";
+        }}
+}}}}
+}}
+}}

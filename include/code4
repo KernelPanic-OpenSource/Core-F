@@ -1,0 +1,618 @@
+
+error_reporting(0);
+$green="\033[1;32m";
+$i=0;
+
+$dem1=0;
+$green="\033[1;32m";
+$res="\033[0m";
+$red="\033[1;31m";
+$yellow="\033[0;93m";
+$lightblue="\033[1;35m";
+$bluelight="\033[1;34m";
+$blue="\033[1;36m";
+$purple="\e[35m";
+$wait = $green."WAIT";
+if (!file_exists('configttctoken.php')){
+echo $res."~ ".$green."Tài Khoản TTC: $yellow";
+$username=trim(fgets(STDIN));
+echo $res."~ ".$green."Mật Khẩu TTC: $yellow";
+$password=trim(fgets(STDIN));
+echo $res."~ ".$green."Token FB: $yellow";
+$access_token=trim(fgets(STDIN));
+$k = fopen("configttctoken.php","a+");
+fwrite($k, '<?php
+$access_token="'.$access_token.'";
+$username="'.$username.'";
+$password="'.$password.'";
+?>');
+}else{
+	include('configttctoken.php');
+}
+
+$idfb = json_decode(file_get_contents('https://graph.facebook.com/me/?access_token='.$access_token))->{'id'};	
+
+$url="https://tuongtaccheo.com/login.php";
+$data="username=".$username."&password=".$password."&submit=%C4%90%C4%82NG+NH%E1%BA%ACP";
+$ch=curl_init();
+curl_setopt($ch, CURLOPT_IPRESOLVE, CURL_IPRESOLVE_V4 );
+curl_setopt($ch, CURLOPT_TCP_FASTOPEN, true);
+curl_setopt($ch,  CURLOPT_URL,  $url); 
+curl_setopt($ch,  CURLOPT_RETURNTRANSFER,  1); 
+curl_setopt($ch,  CURLOPT_HEADER,  1); 
+curl_setopt($ch,  CURLOPT_SSL_VERIFYPEER,  false); 
+curl_setopt($ch, CURLOPT_POST, true);
+curl_setopt($ch, CURLOPT_POSTFIELDS,$data);
+curl_setopt($ch, CURLOPT_USERAGENT, 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/84.0.4147.135 Safari/537.36');
+curl_setopt($ch, CURLOPT_ENCODING, '');
+curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, 60);
+curl_setopt($ch, CURLOPT_FOLLOWLOCATION, FALSE);
+$result = curl_exec($ch); 
+
+preg_match_all('/^Set-Cookie:\s*([^;]*)/mi', 
+
+          $result,  $match_found); 
+
+   
+
+$cookies = array(); 
+
+foreach($match_found[1] as $item) { 
+
+    parse_str($item,  $cookie); 
+
+    $cookies = array_merge($cookies,  $cookie); 
+} 
+
+   curl_close($ch);
+   $cookie = 'PHPSESSID='.$cookies["PHPSESSID"];
+
+
+$headers = array(
+"Host:tuongtaccheo.com",
+"x-requested-with:XMLHttpRequest",
+"save-data:on",
+"sec-fetch-site:same-origin",
+"sec-fetch-mode:cors",
+"sec-fetch-dest:empty",
+"referer:https://tuongtaccheo.com/kiemtien/subcheo/",
+"accept-language:vi-VN,vi;q=0.9,en-US;q=0.8,en;q=0.7",
+"user-agent:Mozilla/5.0 (Linux; Android 9; Redmi 6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/84.0.4147.111 Mobile Safari/537.36",
+"cookie:$cookie"
+);
+
+
+
+$headersdat = array(
+"Host:tuongtaccheo.com",
+"x-requested-with:XMLHttpRequest",
+"save-data:on",
+"sec-fetch-site:same-origin",
+"sec-fetch-mode:cors",
+"sec-fetch-dest:empty",
+"referer:https://tuongtaccheo.com/cauhinh/",
+"accept-language:vi-VN,vi;q=0.9,en-US;q=0.8,en;q=0.7",
+"user-agent:Mozilla/5.0 (Linux; Android 9; Redmi 6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/84.0.4147.111 Mobile Safari/537.36",
+"cookie:$cookie"
+);
+$datadatnick='iddat%5B%5D='.$idfb.'&loai=fb';
+$geturl="https://tuongtaccheo.com/cauhinh/datnick.php";
+$ch = curl_init();
+curl_setopt($ch, CURLOPT_PORT, "443");
+curl_setopt($ch, CURLOPT_URL, $geturl);
+curl_setopt($ch, CURLOPT_ENCODING, "");
+curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
+curl_setopt($ch, CURLOPT_TIMEOUT, 30);
+curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "POST");
+curl_setopt($ch, CURLOPT_POSTFIELDS, $datadatnick);
+curl_setopt($ch, CURLOPT_HTTPHEADER, $headersdat);
+curl_setopt($ch, CURLOPT_COOKIE, $cookie);
+$bal1=curl_exec($ch);
+if ($bal1 !== '1'){
+	echo $green."Đặt Nick $idfb Không Thành Công (Cấu Hình Ở TTC)";
+	exit();
+	}
+	echo $green."Đã Đặt $idfb Làm Nick Chạy\n";
+echo $green."\rĐang Lấy Thông Tin ...                     ";
+//get
+$geturl="https://tuongtaccheo.com/home.php";
+$ch = curl_init();
+curl_setopt($ch, CURLOPT_PORT, "443");
+curl_setopt($ch, CURLOPT_URL, $geturl);
+curl_setopt($ch, CURLOPT_ENCODING, "");
+curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
+curl_setopt($ch, CURLOPT_TIMEOUT, 30);
+curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "POST");
+curl_setopt($ch, CURLOPT_POSTFIELDS, $data);
+curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
+$bal1=curl_exec($ch);
+$balan1=explode('<li><a>Số dư: <strong style="color: red;" id="soduchinh">', $bal1);
+$balanc1=explode('<', $balan1[1]);
+$balance1=$balanc1[0];
+$nich=explode('src="https://graph.facebook.com/', $bal1);
+$nick=explode('/', $nich[1]);
+$usr=explode("<h2 class='text-center'>Chào mừng <i>", $bal1);
+$usernam=explode('</i> đến với hệ thống tương tác chéo</h2>', $usr[1]);
+//GiaoDien
+@system('clear');
+
+echo"$banner\n";
+for ($makep=27;$makep > 0;$makep--){
+echo $res."-";
+usleep(2500);
+echo $red."-";
+}
+echo "\n";
+echo "$res ~".$red."[".$green."✓".$red."]".$res." =>".$green." Tool Auto Tương Tác Chéo Token\n";
+echo "$res ~".$red."[".$green."✓".$red."]".$res." =>".$bluelight." Bản Quyền : HTK GAME MOBILE/Khiêm Tool\n";
+echo "$res ~".$red."[".$green."✓".$red."]".$res." =>".$yellow." Facebook : .\n";
+if ($balance1 > 2000000){
+	echo "$res ~".$red."[".$green."✓".$red."]".$res." =>".$green." $balance1 Xu Cơ À , Giàu Đấy , Donate Đi\n";
+	}
+echo "$res ~".$red."[".$green."✓".$red."]".$res." =>".$green." Donate Lấy Động Lực Làm Tool\n";
+echo "$res ~".$red."[".$green."✓".$red."]".$res." =>".$red." Ví MoMo : ".$bluelight."0377227176\n";
+for ($makep=27;$makep > 0;$makep--){
+echo $res."-";
+usleep(2500);
+echo $red."-";
+}
+echo "\n";
+echo "$res ~".$red."[".$green."✓".$red."]".$res." =>".$green." Nick Đang Chạy :$lightblue $usernam[0]\n";
+echo "$res ~".$red."[".$green."✓".$red."]".$res." =>".$green." Số Dư : $balance1 Xu\n";
+$ten = json_decode(file_get_contents('https://graph.facebook.com/me/?access_token='.$access_token))->{'name'};	
+echo "$res ~".$red."[".$green."✓".$red."]".$res." =>".$green." Facebook Đang Chạy :$lightblue $ten \n";
+echo "$res ~".$red."[".$green."✓".$red."]".$res." =>".$green." Nhập [1] Chế Độ Auto Follow\n";
+echo "$res ~".$red."[".$green."✓".$red."]".$res." =>".$green." Nhập [2] Chế Độ Auto Comment\n";
+echo "$res ~".$red."[".$green."✓".$red."]".$res." =>".$green." Nhập [3] Chế Độ Auto Like Post\n";
+
+echo "$res ~".$red."[".$green."✓".$red."]".$res." =>".$green." Nhập Số : ";
+$chedo=trim(fgets(STDIN));
+echo "$res ~".$red."[".$green."✓".$red."]".$res." =>".$green." Nhập Time Delay : ";
+$delay=trim(fgets(STDIN));
+echo "$res ~".$red."[".$green."✓".$red."]".$res." =>".$green." Số Job Trước Khi Kích Hoạt Chống Block : ";
+$jobs=trim(fgets(STDIN));
+echo "$res ~".$red."[".$green."✓".$red."]".$res." =>".$green." Sau $yellow$jobs$green Nhiệm Vụ Thì Nghỉ Bao Nhiêu Giây : ";
+$rest=trim(fgets(STDIN));
+for ($makep=27;$makep > 0;$makep--){
+echo $res."-";
+usleep(2500);
+echo $red."-";
+}
+echo "\n";
+while ($chedo=='1'){
+	echo $green."\rĐợi Tìm Nhiệm Vụ Sub ...\r";
+$url = "https://tuongtaccheo.com/kiemtien/subcheo/getpost.php";
+
+$mr = curl_init();
+curl_setopt_array($mr, array(
+  CURLOPT_PORT => "443",
+  CURLOPT_URL => "$url",
+  CURLOPT_ENCODING => "",
+  CURLOPT_RETURNTRANSFER => true,
+  CURLOPT_SSL_VERIFYPEER => false,
+  CURLOPT_TIMEOUT => 30,
+  CURLOPT_CUSTOMREQUEST => "GET",
+  CURLOPT_POSTFIELDS => $data,
+  CURLOPT_HTTPHEADER => $headers
+));
+$getid = curl_exec($mr);
+curl_close($mr);
+	
+$list=json_decode($getid);
+$dem=count($list);
+if ($getid !== '[]'){
+
+}
+foreach ($list  as $id => $key) {
+					$uid = $key->{'idpost'};
+					
+$ch=curl_init();
+curl_setopt($ch, CURLOPT_IPRESOLVE, CURL_IPRESOLVE_V4 );
+curl_setopt($ch, CURLOPT_TCP_FASTOPEN, true);
+	curl_setopt($ch, CURLOPT_URL, 'https://graph.facebook.com/'.$uid.'/subscribers');
+	$head[] = "Connection: keep-alive";
+	$head[] = "Keep-Alive: 300";
+	$head[] = "authority: m.facebook.com";
+	$head[] = "ccept-Charset: ISO-8859-1,utf-8;q=0.7,*;q=0.7";
+	$head[] = "accept-language: vi-VN,vi;q=0.9,fr-FR;q=0.8,fr;q=0.7,en-US;q=0.6,en;q=0.5";
+	$head[] = "cache-control: max-age=0";
+	$head[] = "upgrade-insecure-requests: 1";
+	$head[] = "accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9";
+	$head[] = "sec-fetch-site: none";
+	$head[] = "sec-fetch-mode: navigate";
+	$head[] = "sec-fetch-user: ?1";
+	$head[] = "sec-fetch-dest: document";
+	curl_setopt($ch, CURLOPT_USERAGENT, 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/84.0.4147.135 Safari/537.36');
+	curl_setopt($ch, CURLOPT_ENCODING, '');
+	curl_setopt($ch, CURLOPT_COOKIE, $cookie);
+	curl_setopt($ch, CURLOPT_HTTPHEADER, $head);
+	curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+	curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, FALSE);
+	curl_setopt($ch, CURLOPT_TIMEOUT, 60);
+	curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, 60);
+	curl_setopt($ch, CURLOPT_FOLLOWLOCATION, TRUE);
+	curl_setopt($ch, CURLOPT_HTTPHEADER, array('Expect:'));
+	$data = array('access_token' => $access_token);
+	curl_setopt($ch, CURLOPT_POST,count($data));
+	curl_setopt($ch, CURLOPT_POSTFIELDS,$data);
+	$access = curl_exec($ch);
+	curl_close($ch);
+	$acc=json_decode($access);
+if ($acc->{'error'}->{'code'} == 368){
+echo "$res ~".$yellow."[".$red."×".$yellow."]".$res." =>".$red." Acc $ten Bị Spam (Có Thể Đây Là Thông Báo Lỗi) !!!\n";
+exit();
+}
+//Nhận
+$urlnhan = "https://tuongtaccheo.com/kiemtien/subcheo/nhantien.php";
+
+$data = "id=$uid";
+
+$ch = curl_init();
+curl_setopt($ch, CURLOPT_PORT, "443");
+curl_setopt($ch, CURLOPT_URL, $urlnhan);
+curl_setopt($ch, CURLOPT_ENCODING, "");
+curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
+curl_setopt($ch, CURLOPT_TIMEOUT, 30);
+curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "POST");
+curl_setopt($ch, CURLOPT_POSTFIELDS, $data);
+curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
+$result=curl_exec($ch);
+$tc='{"mess":"Thành công, bạn được cộng 600 xu"}';
+
+//bal
+$balurl="https://tuongtaccheo.com/home.php";
+$ch = curl_init();
+curl_setopt($ch, CURLOPT_PORT, "443");
+curl_setopt($ch, CURLOPT_URL, $balurl);
+curl_setopt($ch, CURLOPT_ENCODING, "");
+curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
+curl_setopt($ch, CURLOPT_TIMEOUT, 30);
+curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "POST");
+curl_setopt($ch, CURLOPT_POSTFIELDS, $data);
+curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
+$bal=curl_exec($ch);
+$balan=explode('<li><a>Số dư: <strong style="color: red;" id="soduchinh">', $bal);
+$balanc=explode('<', $balan[1]);
+$balance=$balanc[0];
+//timer+
+if ($result==$tc){
+	$i++;$dem1++;echo $res."~".$red."[$green".$dem1."$red]$res => $green".$uid."$red |";usleep(75000);echo "$green Follow$red |";usleep(75000);echo "$green +600 XU$red |";usleep(75000);echo "$green $balance XU$res\n";
+	if ($delay > 0 && $i < $jobs) {
+for ($x = $delay;$x--;$x) {
+	
+
+    	echo "\r\033[1;93m   (◕︵◕)\033[1;91m ~>       \033[1;92m L      \033[1;91m |\033[1;93m $x\033[1;91m | ";
+        usleep(100000);
+
+        echo "\r\033[1;91m   (◕︵◕)\033[0;33m   ~>     \033[0;37m LO     \033[0;31m |\033[0;33m $x\033[0;31m | ";
+        usleep(100000);
+        echo "\r\033[1;92m   (◕︵◕)\033[0;33m     ~>   \033[0;37m LOA    \033[0;31m |\033[0;33m $x\033[0;31m | ";
+        usleep(100000);
+        echo "\r\033[1;94m   (◕︵◕)\033[0;33m       ~> \033[0;37m LOAD   \033[0;31m |\033[0;33m $x\033[0;31m | ";
+        usleep(100000);
+        echo "\r\033[1;95m   (◕︵◕)\033[0;33m        ~>\033[0;37m LOAD.  \033[0;31m |\033[0;33m $x\033[0;31m | ";
+        usleep(100000);
+        echo "\r\033[1;95m   (◕︵◕)\033[0;33m        ~>\033[0;37m LOAD.. \033[0;31m |\033[0;33m $x\033[0;31m | ";
+        usleep(100000);
+        echo "\r\033[1;95m   (◕︵◕)\033[0;33m        ~>\033[0;37m LOAD...\033[0;31m |\033[0;33m $x\033[0;31m | ";
+        usleep(10000);
+        echo "\r                                          \r";
+        
+
+}}
+if ($i==$jobs){
+	for($j = $rest;$j> 0;$j--){
+             echo $green."Đang Chờ Delay Tránh Block$yellow $j Giây";
+             sleep(1);
+             echo "\r";
+             echo "                                                      \r";
+
+}
+if ($time < 2){$i=0;}}}
+	}}
+					
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//Comment
+while ($chedo=='2'){
+echo $green."\rĐợi Tìm Nhiệm Vụ Comment ...\r";
+$url = "https://tuongtaccheo.com/kiemtien/cmtcheo/getpost.php";
+
+
+$mr = curl_init();
+curl_setopt_array($mr, array(
+  CURLOPT_PORT => "443",
+  CURLOPT_URL => "$url",
+  CURLOPT_ENCODING => "",
+  CURLOPT_RETURNTRANSFER => true,
+  CURLOPT_SSL_VERIFYPEER => false,
+  CURLOPT_TIMEOUT => 30,
+  CURLOPT_CUSTOMREQUEST => "GET",
+  CURLOPT_HTTPHEADER => $headers
+));
+$getid = curl_exec($mr);
+curl_close($mr);
+$list=json_decode($getid);
+$dem=count($list);
+if ($getid !== '[]'){
+
+}
+foreach ($list  as $id => $key) {
+					$uid = $key->{'idpost'};
+					$msg1 = $key->{'nd'};
+					$j=json_decode($msg1);
+					$nd=$j[0];
+					echo $res."~".$red."[$green".$wait."$red]$res => $green".$uid." ".$red."| ".$green."$nd                                       \r";
+$ch=curl_init();
+curl_setopt($ch, CURLOPT_IPRESOLVE, CURL_IPRESOLVE_V4 );
+curl_setopt($ch, CURLOPT_TCP_FASTOPEN, true);
+	curl_setopt($ch, CURLOPT_URL, 'https://graph.facebook.com/'.$uid.'/comments');
+	$head[] = "Connection: keep-alive";
+	$head[] = "Keep-Alive: 300";
+	$head[] = "authority: m.facebook.com";
+	$head[] = "ccept-Charset: ISO-8859-1,utf-8;q=0.7,*;q=0.7";
+	$head[] = "accept-language: vi-VN,vi;q=0.9,fr-FR;q=0.8,fr;q=0.7,en-US;q=0.6,en;q=0.5";
+	$head[] = "cache-control: max-age=0";
+	$head[] = "upgrade-insecure-requests: 1";
+	$head[] = "accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9";
+	$head[] = "sec-fetch-site: none";
+	$head[] = "sec-fetch-mode: navigate";
+	$head[] = "sec-fetch-user: ?1";
+	$head[] = "sec-fetch-dest: document";
+	curl_setopt($ch, CURLOPT_USERAGENT, 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/84.0.4147.135 Safari/537.36');
+	curl_setopt($ch, CURLOPT_ENCODING, '');
+	curl_setopt($ch, CURLOPT_COOKIE, $cookie);
+	curl_setopt($ch, CURLOPT_HTTPHEADER, $head);
+	curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+	curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, FALSE);
+	curl_setopt($ch, CURLOPT_TIMEOUT, 60);
+	curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, 60);
+	curl_setopt($ch, CURLOPT_FOLLOWLOCATION, TRUE);
+	curl_setopt($ch, CURLOPT_HTTPHEADER, array('Expect:'));
+	$data = array('message' => $nd,'access_token' => $access_token);
+	curl_setopt($ch, CURLOPT_POST,count($data));
+	curl_setopt($ch, CURLOPT_POSTFIELDS,$data);
+	$access = curl_exec($ch);
+	curl_close($ch);
+	
+	$acc=json_decode($access);
+if ($acc->{'error'}->{'code'} == 368){
+echo "$res ~".$yellow."[".$red."×".$yellow."]".$res." =>".$red." Acc $ten Bị Spam (Có Thể Đây Là Thông Báo Lỗi) !!!\n";
+break;
+}
+//Nhận
+$urlnhan = "https://tuongtaccheo.com/kiemtien/cmtcheo/nhantien.php";
+
+$data = "id=$uid";
+$ch = curl_init();
+curl_setopt($ch, CURLOPT_PORT, "443");
+curl_setopt($ch, CURLOPT_URL, $urlnhan);
+curl_setopt($ch, CURLOPT_ENCODING, "");
+curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
+curl_setopt($ch, CURLOPT_TIMEOUT, 30);
+curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "POST");
+curl_setopt($ch, CURLOPT_POSTFIELDS, $data);
+curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
+$result=curl_exec($ch);
+$tc='{"mess":"Thành công, bạn được cộng 600 xu"}';
+//bal
+$balurl="https://tuongtaccheo.com/home.php";
+$ch = curl_init();
+curl_setopt($ch, CURLOPT_PORT, "443");
+curl_setopt($ch, CURLOPT_URL, $balurl);
+curl_setopt($ch, CURLOPT_ENCODING, "");
+curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
+curl_setopt($ch, CURLOPT_TIMEOUT, 30);
+curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "POST");
+curl_setopt($ch, CURLOPT_POSTFIELDS, $data);
+curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
+$bal=curl_exec($ch);
+$balan=explode('<li><a>Số dư: <strong style="color: red;" id="soduchinh">', $bal);
+$balanc=explode('<', $balan[1]);
+$balance=$balanc[0];
+//timer+
+if ($result==$tc){
+	$i++;$dem1++;echo $res."~".$red."[$green".$dem1."$red]$res => $green".$uid."$red |";usleep(75000);echo "$green Comment$red |";usleep(75000);echo "$green +600 XU$red |";usleep(75000);echo "$green $balance XU$res\n";
+if ($delay > 0 && $i < $jobs) {
+for ($x = $delay;$x--;$x) {
+	
+
+    	echo "\r\033[1;93m   (◕︵◕)\033[1;91m ~>       \033[1;92m L      \033[1;91m |\033[1;93m $x\033[1;91m | ";
+        usleep(100000);
+
+        echo "\r\033[1;91m   (◕︵◕)\033[0;33m   ~>     \033[0;37m LO     \033[0;31m |\033[0;33m $x\033[0;31m | ";
+        usleep(100000);
+        echo "\r\033[1;92m   (◕︵◕)\033[0;33m     ~>   \033[0;37m LOA    \033[0;31m |\033[0;33m $x\033[0;31m | ";
+        usleep(100000);
+        echo "\r\033[1;94m   (◕︵◕)\033[0;33m       ~> \033[0;37m LOAD   \033[0;31m |\033[0;33m $x\033[0;31m | ";
+        usleep(100000);
+        echo "\r\033[1;95m   (◕︵◕)\033[0;33m        ~>\033[0;37m LOAD.  \033[0;31m |\033[0;33m $x\033[0;31m | ";
+        usleep(100000);
+        echo "\r\033[1;95m   (◕︵◕)\033[0;33m        ~>\033[0;37m LOAD.. \033[0;31m |\033[0;33m $x\033[0;31m | ";
+        usleep(100000);
+        echo "\r\033[1;95m   (◕︵◕)\033[0;33m        ~>\033[0;37m LOAD...\033[0;31m |\033[0;33m $x\033[0;31m | ";
+        usleep(10000);
+        echo "\r                                          \r";
+	}
+}}
+if ($i==$jobs){
+	if ($i==$jobs){
+	for($j = $rest;$j> 0;$j--){
+             echo $green."Đang Chờ Delay Tránh Block$yellow $j Giây";
+             sleep(1);
+             echo "\r";
+             echo "                                                      \r";
+
+
+if ($time < 2){$i=0;}}}
+	}
+					}}
+
+
+					//Like Post
+					
+					while($chedo=='3'){
+					echo $green."\rĐợi Tìm Nhiệm Vụ Post ...\r";
+					
+					$urlpost = "https://tuongtaccheo.com/kiemtien/getpost.php";
+
+
+$mr = curl_init();
+curl_setopt_array($mr, array(
+  CURLOPT_PORT => "443",
+  CURLOPT_URL => "$urlpost",
+  CURLOPT_ENCODING => "",
+  CURLOPT_RETURNTRANSFER => true,
+  CURLOPT_SSL_VERIFYPEER => false,
+  CURLOPT_TIMEOUT => 30,
+  CURLOPT_CUSTOMREQUEST => "GET",
+  CURLOPT_HTTPHEADER => $headers
+));
+$getid = curl_exec($mr);
+curl_close($mr);
+$list=json_decode($getid);
+$dem=count($list);
+if ($getid !== '[]'){
+
+}
+foreach ($list  as $id => $key) {
+					$uid = $key->{'idpost'};
+					
+					
+					$ch=curl_init();
+curl_setopt($ch, CURLOPT_IPRESOLVE, CURL_IPRESOLVE_V4 );
+curl_setopt($ch, CURLOPT_TCP_FASTOPEN, true);
+	curl_setopt($ch, CURLOPT_URL, 'https://graph.facebook.com/'.$uid.'/likes');
+	$head[] = "Connection: keep-alive";
+	$head[] = "Keep-Alive: 300";
+	$head[] = "authority: m.facebook.com";
+	$head[] = "ccept-Charset: ISO-8859-1,utf-8;q=0.7,*;q=0.7";
+	$head[] = "accept-language: vi-VN,vi;q=0.9,fr-FR;q=0.8,fr;q=0.7,en-US;q=0.6,en;q=0.5";
+	$head[] = "cache-control: max-age=0";
+	$head[] = "upgrade-insecure-requests: 1";
+	$head[] = "accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9";
+	$head[] = "sec-fetch-site: none";
+	$head[] = "sec-fetch-mode: navigate";
+	$head[] = "sec-fetch-user: ?1";
+	$head[] = "sec-fetch-dest: document";
+	curl_setopt($ch, CURLOPT_USERAGENT, 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/84.0.4147.135 Safari/537.36');
+	curl_setopt($ch, CURLOPT_ENCODING, '');
+	curl_setopt($ch, CURLOPT_COOKIE, $cookie);
+	curl_setopt($ch, CURLOPT_HTTPHEADER, $head);
+	curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+	curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, FALSE);
+	curl_setopt($ch, CURLOPT_TIMEOUT, 60);
+	curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, 60);
+	curl_setopt($ch, CURLOPT_FOLLOWLOCATION, TRUE);
+	curl_setopt($ch, CURLOPT_HTTPHEADER, array('Expect:'));
+	$data = array('access_token' => $access_token);
+	curl_setopt($ch, CURLOPT_POST,count($data));
+	curl_setopt($ch, CURLOPT_POSTFIELDS,$data);
+	$access = curl_exec($ch);
+	curl_close($ch);
+	
+	$acc=json_decode($access);
+if ($acc->{'error'}->{'code'} == 368){
+echo "$res ~".$yellow."[".$red."×".$yellow."]".$res." =>".$red." Acc $ten Bị Spam (Có Thể Đây Là Thông Báo Lỗi) !!!\n";
+break;
+}
+					
+					
+					    $url  = "https://tuongtaccheo.com/kiemtien/nhantien.php";
+    $data = "id=".$uid;
+    $head = array(
+        "Host: tuongtaccheo.com",
+        "content-length: " . strlen($data),
+        "x-requested-with: XMLHttpRequest",
+        "user-agent: Mozilla/5.0 (Linux; Android 10; Mi 9T Pro) AppleWebKit/537.36 (KHTML, like Gecko) SamsungBrowser/12.1 Chrome/79.0.3945.136 Mobile Safari/537.36",
+        "content-type: application/x-www-form-urlencoded; charset=UTF-8",
+        "origin: https://tuongtaccheo.com",
+        "referer: https://tuongtaccheo.com/kiemtien/"
+    );
+    $ch   = curl_init();
+    curl_setopt_array($ch, array(
+        CURLOPT_URL => $url,
+        CURLOPT_FOLLOWLOCATION => TRUE,
+        CURLOPT_RETURNTRANSFER => 1,
+        CURLOPT_POST => 1,
+        CURLOPT_POSTFIELDS => $data,
+        CURLOPT_SSL_VERIFYPEER => 0,
+        CURLOPT_COOKIE => $cookie,
+        CURLOPT_HTTPHEADER => $head,
+        CURLOPT_ENCODING => TRUE
+    ));
+    $getmoney=curl_exec($ch);
+    if($getmoney=='{"mess":"Thành công, bạn đã được cộng 300 xu"}'){
+    	//bal
+$balurl="https://tuongtaccheo.com/home.php";
+$ch = curl_init();
+curl_setopt($ch, CURLOPT_PORT, "443");
+curl_setopt($ch, CURLOPT_URL, $balurl);
+curl_setopt($ch, CURLOPT_ENCODING, "");
+curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
+curl_setopt($ch, CURLOPT_TIMEOUT, 30);
+curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "POST");
+curl_setopt($ch, CURLOPT_POSTFIELDS, $data);
+curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
+$bal=curl_exec($ch);
+$balan=explode('<li><a>Số dư: <strong style="color: red;" id="soduchinh">', $bal);
+$balanc=explode('<', $balan[1]);
+$balance=$balanc[0];
+    	$i++;$dem1++;echo $res."~".$red."[$green".$dem1."$red]$res => $green".$uid."$red |";usleep(75000);echo "$green Like Post$red |";usleep(75000);echo "$green +300 XU$red |";usleep(75000);echo "$green $balance XU$res\n";
+if ($delay > 0 && $i < $jobs) {
+for ($x = $delay;$x--;$x) {
+	
+
+    	echo "\r\033[1;93m   (◕︵◕)\033[1;91m ~>       \033[1;92m L      \033[1;91m |\033[1;93m $x\033[1;91m | ";
+        usleep(100000);
+
+        echo "\r\033[1;91m   (◕︵◕)\033[0;33m   ~>     \033[0;37m LO     \033[0;31m |\033[0;33m $x\033[0;31m | ";
+        usleep(100000);
+        echo "\r\033[1;92m   (◕︵◕)\033[0;33m     ~>   \033[0;37m LOA    \033[0;31m |\033[0;33m $x\033[0;31m | ";
+        usleep(100000);
+        echo "\r\033[1;94m   (◕︵◕)\033[0;33m       ~> \033[0;37m LOAD   \033[0;31m |\033[0;33m $x\033[0;31m | ";
+        usleep(100000);
+        echo "\r\033[1;95m   (◕︵◕)\033[0;33m        ~>\033[0;37m LOAD.  \033[0;31m |\033[0;33m $x\033[0;31m | ";
+        usleep(100000);
+        echo "\r\033[1;95m   (◕︵◕)\033[0;33m        ~>\033[0;37m LOAD.. \033[0;31m |\033[0;33m $x\033[0;31m | ";
+        usleep(100000);
+        echo "\r\033[1;95m   (◕︵◕)\033[0;33m        ~>\033[0;37m LOAD...\033[0;31m |\033[0;33m $x\033[0;31m | ";
+        usleep(10000);
+        echo "\r                                          \r";
+	
+	
+}}
+if ($i==$jobs){
+	if ($i==$jobs){
+	for($j = $rest;$j> 0;$j--){
+             echo $green."Đang Chờ Delay Tránh Block$yellow $j Giây";
+             sleep(1);
+             echo "\r";
+             echo "                                                      \r";
+
+
+if ($time < 2){$i=0;}}}
+	}
+    
+    }
+    }
+    }

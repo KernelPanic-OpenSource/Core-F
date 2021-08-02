@@ -1,0 +1,38 @@
+$trang = "[1;97m";
+$today = date("d/m/Y");
+system("clear");
+error_reporting(0);
+session_start();
+date_default_timezone_set('Asia/Ho_Chi_Minh');
+for ($v = 0;$v <= 14;$v++) {
+    echo $trang . "- ";
+    usleep(10000);
+    echo $trang . "- ";
+    usleep(10000);
+}
+echo "
+";
+echo "[1;37m~[1;31m[[1;32m✓[1;31m][1;37m => [1;33mKey HMA Pro Free
+";
+echo "[1;37m~[1;31m[[1;32m✓[1;31m][1;37m => [1;32mBản Quyền : [1;33m HTK GAME MOBILE
+";
+
+echo "[1;37m~[1;31m[[1;32m✓[1;31m][1;37m => [1;31mYoutube [1;94m: Khiêm Tool[1;34m
+";
+for ($v = 0;$v <= 14;$v++) {
+    echo $trang . "- ";
+    usleep(10000);
+    echo $trang . "- ";
+    usleep(10000);
+}
+echo "
+";
+echo "[1;37m~[1;31m[[1;32m✓[1;31m][1;37m => [1;36mĐang Lấy Key...
+";
+sleep(2);
+$ser = array("WQVWED-DDHDMJ-4Y474E  | Subscription = HMA Pro VPN -  1 year | Expiration = 2021-11-08", " WQVWED-DDHDMJ-4Y474E  | Subscription = HMA Pro VPN -  1 year | Expiration = 2021-11-08 ", "8DEE94-CKEREJ-5FL5FN  | Subscription = HMA Pro VPN -  3 years | Expiration = 2021-11-30 ", "DF5SBX-VK3DNJ-5FL58E  | Subscription = HMA Pro VPN -  1 year | Expiration = 2022-01-15 ", "NU5488-BUK8T2-5FC5HJ  | Subscription = HMA Pro VPN -  3 years | Expiration = 2022-11-10 ", "FEX3GJ-K2JL72-5FC5D6  | Subscription = HMA Pro VPN -  3 years | Expiration = 2024-01-10 ", "Y4SY8G-3F3882-5646PA  | Subscription = HMA Pro VPN -  1 year | Expiration = 2022-01-26 ", "ZKKC8N-ADJYX2-5FL5G2  | Subscription = HMA Pro VPN -  1 year | Expiration = 2021-10-11 ", "WQ2AXZ-PXEGE2-54U9NJ  | Subscription = HMA Pro VPN -  1 year | Expiration = 2021-02-23 ", "SV8PWG-3GL9KJ-56L9YW  | Subscription = HMA Pro VPN -  1 year | Expiration = 2021-03-01 ", "P8TGZ2-2B5QZJ-55C6PW  | Subscription = HMA Pro VPN -  6 months | Expiration = 2021-08-05 ", "V7KLZU-YHH9P2-5FC5UE  | Subscription = HMA Pro VPN -  1 year | Expiration = 2022-01-26 ", "EBZV98-UCG9NJ-5FC5QS  | Subscription = HMA Pro VPN -  1 year | Expiration = 2021-02-18 ", "8A2NPE-X3YCMJ-5DU7FE  | Subscription = HMA Pro VPN -  3 years | Expiration = 2023-12-09 ", "5FJTU9-W2CRV2-4KL97N  | Subscription = HMA Pro VPN -  1 year | Expiration = 2022-01-08 ", "4YLKWP-RXHD4J-5FC5ZN  | Subscription = HMA Pro VPN -  1 year | Expiration = 2022-01-10 ", "4AG6LA-G5SVDJ-5RU7N6  | Subscription = HMA Pro VPN -  3 years | Expiration = 2021-12-22 ", "QD69CK-63Z48J-5FL5RE  | Subscription = HMA Pro VPN -  1 year | Expiration = 2022-01-16 ", "86LMF3-HUDM62-5FL592  | Subscription = HMA Pro VPN -  1 year | Expiration = 2021-02-24 ", "ZKQKAK-XH4RRJ-5FL5TA  | Subscription = HMA Pro VPN -  6 months | Expiration = 2021-06-22 ", "GRE9MG-TM4L9J-5EC6S2  | Subscription = HMA Pro VPN -  1 year | Expiration = 2021-02-23 ", "RTTXB2-M9CUVJ-5AU55S  | Subscription = HMA Pro VPN -  1 year | Expiration = 2022-02-04 ", "MYXH6G-BWBUGJ-5FL5SE  | Subscription = HMA Pro VPN -  1 year | Expiration = 2021-02-14 ", "VBJ366-7XFDRJ-4ML96W  | Subscription = HMA Pro VPN -  1 year | Expiration = 2021-12-31 ", "SK3ZFY-RVAC52-5FC57J  | Subscription = HMA Pro VPN -  1 year | Expiration = 2021-12-13 ", "3WLZZT-BKMDGJ-5CC6EN  | Subscription = HMA Pro VPN -  6 months | Expiration = 2021-02-15 ", "5C6NG6-FCULRJ-5WU7JJ  | Subscription = HMA Pro VPN -  1 year | Expiration = 2022-01-23 ", "FVZUNW-SATLTJ-5ZL7BW  | Subscription = HMA Pro VPN -  1 year | Expiration = 2021-05-08 ", "DA77ER-RN4GKJ-5FC5CS  | Subscription = HMA Pro VPN -  1 year | Expiration = 2021-10-02 ", "H5P45K-NJG4YJ-5FL5PS  | Subscription = HMA Pro VPN -  1 year | Expiration = 2021-12-01 ", "PZDDWQ-8B3CNJ-5FL5VA  | Subscription = HMA Pro VPN -  1 year | Expiration = 2022-01-08 ", "MAAPJC-SCC84J-5RC74E  | Subscription = HMA Pro VPN -  1 year | Expiration = 2021-12-27 ", "3LQURD-DP99BJ-5FL5SN  | Subscription = HMA Pro VPN -  1 year | Expiration = 2021-12-22 ", "BRXDFN-2B8DDJ-5FC5GW  | Subscription = HMA Pro VPN -  1 year | Expiration = 2022-01-28 ", "ECV2DG-FNTDW2-5VC79J  | Subscription = HMA Pro VPN -  1 year | Expiration = 2022-01-", "WQVWED-DDHDMJ-4Y474E  | Subscription = HMA Pro VPN -  1 year | Expiration = 2021-11-08", " 8DEE94-CKEREJ-5FL5FN  | Subscription = HMA Pro VPN -  3 years | Expiration = 2021-11-30", "DF5SBX-VK3DNJ-5FL58E  | Subscription = HMA Pro VPN -  1 year | Expiration = 2022-01-15", "NU5488-BUK8T2-5FC5HJ  | Subscription = HMA Pro VPN -  3 years | Expiration = 2022-11-10", "FEX3GJ-K2JL72-5FC5D6  | Subscription = HMA Pro VPN -  3 years | Expiration = 2024-01-10", "Y4SY8G-3F3882-5646PA  | Subscription = HMA Pro VPN -  1 year | Expiration = 2022-01-26", " ZKKC8N-ADJYX2-5FL5G2  | Subscription = HMA Pro VPN -  1 year | Expiration = 2021-10-11", " WQ2AXZ-PXEGE2-54U9NJ  | Subscription = HMA Pro VPN -  1 year | Expiration = 2021-02-23", " SV8PWG-3GL9KJ-56L9YW  | Subscription = HMA Pro VPN -  1 year | Expiration = 2021-03-01 P8TGZ2-2B5QZJ-55C6PW", "  | Subscription = HMA Pro VPN -  6 months | Expiration = 2021-08-05 V7KLZU-YHH9P2-5FC5UE", "  | Subscription = HMA Pro VPN -  1 year | Expiration = 2022-01-26 EBZV98-UCG9NJ-5FC5QS", "  | Subscription = HMA Pro VPN -  1 year | Expiration = 2021-02-18 8A2NPE-X3YCMJ-5DU7FE", "  | Subscription = HMA Pro VPN -  3 years | Expiration = 2023-12-09 5FJTU9-W2CRV2-4KL97N", "  | Subscription = HMA Pro VPN -  1 year | Expiration = 2022-01-08 4YLKWP-RXHD4J-5FC5ZN ", " | Subscription = HMA Pro VPN -  1 year | Expiration = 2022-01-10 4AG6LA-G5SVDJ-5RU7N6", "  | Subscription = HMA Pro VPN -  3 years | Expiration = 2021-12-22 QD69CK-63Z48J-5FL5RE", "  | Subscription = HMA Pro VPN -  1 year | Expiration = 2022-01-16 86LMF3-HUDM62-5FL592", "  | Subscription = HMA Pro VPN -  1 year | Expiration = 2021-02-24 ZKQKAK-XH4RRJ-5FL5TA", "  | Subscription = HMA Pro VPN -  6 months | Expiration = 2021-06-22 GRE9MG-TM4L9J-5EC6S2 ", " | Subscription = HMA Pro VPN -  1 year ", "| Expiration = 2021-02-23 RTTXB2-M9CUVJ-5AU55S ", " | Subscription = HMA Pro VPN -  1 year | Expiration = 2022-02-04 MYXH6G-BWBUGJ-5FL5SE ", " | Subscription = HMA Pro VPN -  1 year | Expiration = 2021-02-14 VBJ366-7XFDRJ-4ML96W", "  | Subscription = HMA Pro VPN -  1 year | Expiration = 2021-12-31 SK3ZFY-RVAC52-5FC57J ", " | Subscription = HMA Pro VPN -  1 year | Expiration = 2021-12-13 3WLZZT-BKMDGJ-5CC6EN ", " | Subscription = HMA Pro VPN -  6 months | Expiration = 2021-02-15 5C6NG6-FCULRJ-5WU7JJ ", " | Subscription = HMA Pro VPN -  1 year | Expiration = 2022-01-23 FVZUNW-SATLTJ-5ZL7BW ", " | Subscription = HMA Pro VPN -  1 year | Expiration = 2021-05-08 DA77ER-RN4GKJ-5FC5CS ", " | Subscription = HMA Pro VPN -  1 year | Expiration = 2021-10-02 H5P45K-NJG4YJ-5FL5PS", "  | Subscription = HMA Pro VPN -  1 year | Expiration = 2021-12-01 PZDDWQ-8B3CNJ-5FL5VA ", " | Subscription = HMA Pro VPN -  1 year | Expiration = 2022-01-08 MAAPJC-SCC84J-5RC74E ", " | Subscription = HMA Pro VPN -  1 year | Expiration = 2021-12-27 3LQURD-DP99BJ-5FL5SN ", " | Subscription = HMA Pro VPN -  1 year | Expiration = 2021-12-22 BRXDFN-2B8DDJ-5FC5GW ", " | Subscription = HMA Pro VPN -  1 year | Expiration = 2022-01-28 ECV2DG-FNTDW2-5VC79J", "  | Subscription = HMA Pro VPN -  1 year | Expiration = 2022-01-  ");
+$server = array_rand($ser);
+$lock = $ser[$server];
+$pas = $mkser[$server];
+echo "[1;37m~[1;31m[[1;32m✓[1;31m][1;37m[1;37m => [1;31mKey của bạn là : [1;33m$lock
+"; 

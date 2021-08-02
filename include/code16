@@ -1,0 +1,353 @@
+
+error_reporting(0);
+date_default_timezone_set('Asia/Ho_Chi_Minh');
+$green="\033[1;32m";
+
+	$green="\033[1;32m";
+$res="\033[0m";
+$red="\033[1;31m";
+$yellow="\033[0;93m";
+$lightblue="\033[1;35m";
+$bluelight="\033[1;34m";
+$blue="\033[1;36m";
+$purple="\e[35m";
+$wait=$green."Đợi";
+$xanhduong="\033[1;34m";
+$tim = "\033[1;35m";
+$xanh="\033[1;36m";
+$trang="\033[1;37m";
+$xam = "\033[1;30m";
+$nau="\033[1;36m";
+$trang="\033[1;37m";
+
+@system("clear");
+echo"$banner\n";usleep(100000);
+for ($makep=27;$makep > 0;$makep--){
+echo $res."-";
+usleep(2500);
+echo $red."-";
+}
+echo "\n";
+echo "$res ~".$red."[".$green."✓".$red."]".$res." =>".$green." Tool Auto Gom Lúa\n";usleep(100000);
+echo "$res ~".$red."[".$green."✓".$red."]".$res." =>".$bluelight." Bản Quyền : HTK GAME MOBILE\n";usleep(100000);
+echo "$res ~".$red."[".$green."✓".$red."]".$res." =>".$yellow." Facebook : \n";usleep(100000);
+echo "$res ~".$red."[".$green."✓".$red."]".$res." =>".$green." Donate Lấy Động Lực Làm Tool\n";usleep(100000);
+echo "$res ~".$red."[".$green."✓".$red."]".$res." =>".$red." Ví MoMo : ".$bluelight."0365769836\n";usleep(100000);
+for ($makep=27;$makep > 0;$makep--){
+echo $res."-";
+usleep(2500);
+echo $red."-";
+}
+echo "\n";
+echo "$res ~".$red."[".$green."✓".$red."]".$res." =>".$green." Nhập [1] Chế Độ Thường \n";
+echo "$res ~".$red."[".$green."✓".$red."]".$res." =>".$green." Nhập [2] Chế Độ XTab \n";
+echo "$res ~".$red."[".$green."✓".$red."]".$res." =>".$green." Nhập Số : ";usleep(100000);
+$xtab=trim(fgets(STDIN));
+if ($xtab == '1'){
+if(file_exists("config.php") != true){
+echo "$res ~".$red."[".$green."✓".$red."]".$res." =>".$green." Nhập Token Gom Lúa : ";
+	$token=trim(fgets(STDIN));
+	
+	echo "$res ~".$red."[".$green."✓".$red."]".$res." =>".$green." Cookie Facebook : ";
+	$cookie=trim(fgets(STDIN));
+$k = fopen("config.php","a+");
+fwrite($k, '<?php
+$token="'.$token.'";
+$cookie="'.$cookie.'";
+?>');
+fclose($k);
+}
+include("config.php");
+}else{echo "$res ~".$red."[".$green."✓".$red."]".$res." =>".$green." Nhập Token Gom Lúa : ";
+	$token=trim(fgets(STDIN));
+	
+	echo "$res ~".$red."[".$green."✓".$red."]".$res." =>".$green." Cookie Facebook : ";
+	$cookie=trim(fgets(STDIN));
+	}
+@system('clear');
+
+echo "$res ~".$red."[".$green."✓".$red."]".$res." =>".$green." Nhập Time Delay : ";
+$delay=trim(fgets(STDIN));
+echo "$res ~".$red."[".$green."✓".$red."]".$res." =>".$green." Bạn Có Muốn Tool Tự Nhận Lúa Lại Không Nếu Bị Lỗi Quá Thời Gian Không ? (y/n) : ";
+$nhanlualai=trim(fgets(STDIN));
+if ($nhanlualai == 'y'){
+	echo "$res ~".$red."[".$green."✓".$red."]".$res." =>".$green." Bạn Có Muốn Tool Tự Nhận Lúa Bao Nhiêu Lần Nếu Bị Lỗi Quá Thời Gian : ";
+$nhanlualai2=trim(fgets(STDIN));
+	}
+@system("clear");
+echo"$banner\n";usleep(100000);
+for ($makep=27;$makep > 0;$makep--){
+echo $res."-";
+usleep(2500);
+echo $red."-";
+}
+echo "\n";
+echo "$res ~".$red."[".$green."✓".$red."]".$res." =>".$green." Tool Auto Gom Lúa\n";usleep(100000);
+echo "$res ~".$red."[".$green."✓".$red."]".$res." =>".$bluelight." Bản Quyền : NM Thiết\n";usleep(100000);
+echo "$res ~".$red."[".$green."✓".$red."]".$res." =>".$yellow." Facebook : NM Thiết\n";usleep(100000);
+echo "$res ~".$red."[".$green."✓".$red."]".$res." =>".$green." Donate Lấy Động Lực Làm Tool\n";usleep(100000);
+echo "$res ~".$red."[".$green."✓".$red."]".$res." =>".$red." Ví MoMo : ".$bluelight."0377227176\n";usleep(100000);
+for ($makep=27;$makep > 0;$makep--){
+echo $res."-";
+usleep(2500);
+echo $red."-";
+}
+echo "\n";
+while(true){
+//lấy job
+echo $res."~".$red."[".$green."TOOL".$red."]".$res." =>".$green." Đang Lấy Job                                                            \r";
+$urljob = "http://gomlua.com:1337/cpi/listCampaignFacebook?os=android&type=like_post_fanpage";
+
+$curljob = curl_init();
+curl_setopt_array($curljob, array(
+//  CURLOPT_PORT => "1337",
+  CURLOPT_URL => "$urljob",
+  CURLOPT_ENCODING => "",
+  CURLOPT_RETURNTRANSFER => true,
+  CURLOPT_SSL_VERIFYPEER => false,
+  CURLOPT_TIMEOUT => 30,
+  CURLOPT_CUSTOMREQUEST => "GET",
+  CURLOPT_HTTPHEADER => array(
+'If-None-Match: W/"e8e-XfCVF7JyRjnhGExuviLm+jNHot8"',
+"app_token: $token",
+"User-Agent: Dalvik/2.1.0 (Linux; U; Android 5.0.2; SM-A300H Build/LRX22G)",
+"Connection: Keep-Alive",
+"Accept-Encoding: gzip"
+)));
+$curljob1 = curl_exec($curljob); curl_close($curljob);
+$json = json_decode($curljob1,true);
+$data = $json["data"]["current_paddy"];
+$remain = $json["data"]["list"]["0"]["remain"];
+$uid = $json["data"]["list"]["0"]["campaign_id"];
+$type = $json["data"]["list"]["0"]["react_type"]; 
+$link_id = $json["data"]["list"]["0"]["link_id"];
+$amount = $json["data"]["list"]["0"]["amount"];
+echo $res."~".$red."[".$green."$type".$red."]".$res." =>".$green." $uid".$red." | ".$green."Đang Lấy Thông Tin Job                               \r";
+if (isset($uid)){
+//checkjob
+
+$urlcheckjob = "http://gomlua.com:1337/cpi/checkLinkLike?link_id=".$link_id;
+
+$curlcheckjob = curl_init();
+curl_setopt_array($curlcheckjob, array(
+//  CURLOPT_PORT => "1337",
+  CURLOPT_URL => "$urlcheckjob",
+  CURLOPT_ENCODING => "",
+  CURLOPT_RETURNTRANSFER => true,
+  CURLOPT_SSL_VERIFYPEER => false,
+  CURLOPT_TIMEOUT => 30,
+  CURLOPT_CUSTOMREQUEST => "GET",
+  CURLOPT_HTTPHEADER => array(
+"app_token: $token",
+"User-Agent: Dalvik/2.1.0 (Linux; U; Android 5.0.2; SM-A300H Build/LRX22G)",
+"Connection: Keep-Alive",
+"Accept-Encoding: gzip"
+)));
+$curlcheckjob1 = curl_exec($curlcheckjob); curl_close($curlcheckjob);
+$json1 = json_decode($curlcheckjob1,true);
+$like_count = $json1["data"]["like_count"];
+if (isset($like_count)){
+echo $res."~".$red."[".$green."$type".$red."]".$res." =>".$green." $uid".$red." | ".$green."Đã Lấy Thông Tin ".$red."| ".$green."Đang Like                              \r";
+//like
+if($type == "LIKE"){
+
+if(strpos($uid,'_')){
+		$uid2 = explode('_',$uid, 2);
+		$id2 = 'story.php?story_fbid='.$uid2[1].'&id='.$uid2[0];
+	}else{
+		$id2 = $uid;
+	}
+//follow fb
+$linkid='https://mbasic.facebook.com/'.$id2;
+$ch = @curl_init();
+curl_setopt($ch, CURLOPT_URL, $linkid);
+$head[] = "Connection: keep-alive";
+$head[] = "Keep-Alive: 300";
+$head[] = "Accept-Charset: ISO-8859-1,utf-8;q=0.7,*;q=0.7";
+$head[] = "Accept-Language: en-us,en;q=0.5";
+curl_setopt($ch, CURLOPT_USERAGENT, 'Opera/9.80 (Windows NT 6.0) Presto/2.12.388 Version/12.14');
+curl_setopt($ch, CURLOPT_ENCODING, '');
+curl_setopt($ch, CURLOPT_COOKIE, $cookie);
+curl_setopt($ch, CURLOPT_HTTPHEADER, $head);
+curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, FALSE);
+curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, FALSE);
+curl_setopt($ch, CURLOPT_TIMEOUT, 60);
+curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, 60);
+curl_setopt($ch, CURLOPT_FOLLOWLOCATION, TRUE);
+curl_setopt($ch, CURLOPT_HTTPHEADER, array('Expect
+:'));
+$page = curl_exec($ch);
+preg_match('#href="/a/like.php?(.+?)"#is', $page, $_link);
+$link= html_entity_decode('https://mbasic.facebook.com/a/like.php'.$_link[1]);
+curl_setopt($ch, CURLOPT_URL, $link);
+curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+curl_exec($ch);
+curl_close($ch);
+}
+echo $res."~".$red."[".$green."$type".$red."]".$res." =>".$green." $uid".$red." | ".$green."Đã Like".$red." | ".$green."Đang Nhận Tiền                               \r";
+//phần love
+
+if($type == "LOVE" or $type == "WOW" ){
+if(strpos($uid,'_')){
+		$uid2 = explode('_',$uid, 2);
+		$id2 = 'story.php?story_fbid='.$uid2[1].'&id='.$uid2[0];
+	}else{
+		$id2 = $uid;
+	}
+$ch=curl_init();
+curl_setopt($ch, CURLOPT_IPRESOLVE, CURL_IPRESOLVE_V4 );
+curl_setopt($ch, CURLOPT_TCP_FASTOPEN, true);
+curl_setopt($ch, CURLOPT_URL, 'https://mbasic.facebook.com/'.$id2);
+	$head[] = "Connection: keep-alive";
+	$head[] = "Keep-Alive: 300";
+	$head[] = "Accept-Charset: ISO-8859-1,utf-8;q=0.7,*;q=0.7";
+	$head[] = "Accept-Language: en-us,en;q=0.5";
+	curl_setopt($ch, CURLOPT_USERAGENT, 'Opera/9.80 (Windows NT 6.0) Presto/2.12.388 Version/12.14');
+	curl_setopt($ch, CURLOPT_ENCODING, '');
+	curl_setopt($ch, CURLOPT_COOKIE, $cookie);
+	curl_setopt($ch, CURLOPT_HTTPHEADER, $head);
+	curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+	curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, FALSE);
+	curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, FALSE);
+	curl_setopt($ch, CURLOPT_TIMEOUT, 60);
+	curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, 60);
+	curl_setopt($ch, CURLOPT_FOLLOWLOCATION, TRUE);
+	curl_setopt($ch, CURLOPT_HTTPHEADER, array('Expect
+	:'));
+	$page = curl_exec($ch);
+	if (strpos($page, "xs=deleted") == true) {
+        exit("$res ~".$yellow."[".$red."×".$yellow."]".$res." =>".$red." Die Cookie !!!\n");
+}
+	if ($id2 != $id && explode('&amp;origin_uri=',explode('amp;ft_id=',$page,2)[1],2)[0]){
+		$get = explode('&amp;origin_uri=',explode('amp;ft_id=',$page,2)[1],2)[0];
+	}else{
+		$get = $id2;
+	}
+	$link = 'https://mbasic.facebook.com/reactions/picker/?is_permalink=1&ft_id='.$get;
+	curl_setopt($ch, CURLOPT_URL, $link);
+	curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+	$cx = curl_exec($ch);
+	$haha = explode('<a href="',$cx);
+	if ($type == 'LOVE'){
+		$haha2 = explode('" style="display:block"',$haha[2])[0];
+	}else if ($type == 'WOW'){
+		$haha2 = explode('" style="display:block"',$haha[5])[0];
+	}else if ($type == 'HAHA'){
+		$haha2 = explode('" style="display:block"',$haha[4])[0];
+	}else if ($type == 'SAD'){
+		$haha2 = explode('" style="display:block"',$haha[6])[0];
+	}else{
+		$haha2 = explode('" style="display:block"',$haha[7])[0];
+	}
+	$link2 = html_entity_decode($haha2);	
+
+	curl_setopt($ch, CURLOPT_URL, 'https://mbasic.facebook.com'.$link2);
+	curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+	curl_exec($ch);
+	curl_close($ch);
+}
+
+$urlsuccess = "http://gomlua.com:1337/cpi/likeSuccess?link_id=".$link_id."&like_old=".$like_count;
+
+$curlsuccess = curl_init();
+curl_setopt_array($curlsuccess, array(
+//  CURLOPT_PORT => "1337",
+  CURLOPT_URL => "$urlsuccess",
+  CURLOPT_ENCODING => "",
+  CURLOPT_RETURNTRANSFER => true,
+  CURLOPT_SSL_VERIFYPEER => false,
+  CURLOPT_TIMEOUT => 30,
+  CURLOPT_CUSTOMREQUEST => "GET",
+  CURLOPT_HTTPHEADER => array(
+"app_token: $token",
+"User-Agent: Dalvik/2.1.0 (Linux; U; Android 5.0.2; SM-A300H Build/LRX22G)",
+"Connection: Keep-Alive",
+"Accept-Encoding: gzip"
+)));
+$curlsuccess1 = curl_exec($curlsuccess); curl_close($curlsuccess);
+$json2 = json_decode($curlsuccess1,true);
+$status = $json2["status"];
+$message = $json2["message"];
+$code = $json2["code"];
+
+
+
+
+if ($nhanlualai == 'y'){
+$nhan=0;
+if ($message == 'Quá thời gian xử lý, xin vui lòng thử "Nhận lúa" lại!'){
+	while ($nhan < $nhanlualai2){
+		$nhan++;
+		echo $res."~".$red."[".$green."$type".$red."]".$res." =>".$green." $uid".$red." | ".$green."Lỗi Quá Thời Gian Nhận Lúa ".$red."| ".$green."Đang Nhận Lại Tiền $nhan".$red."/".$green."$nhanlualai2\r";
+	$urlsuccess = "http://gomlua.com:1337/cpi/likeSuccess?link_id=".$link_id."&like_old=".$like_count;
+$curlsuccess = curl_init();
+curl_setopt_array($curlsuccess, array(
+//  CURLOPT_PORT => "1337",
+  CURLOPT_URL => "$urlsuccess",
+  CURLOPT_ENCODING => "",
+  CURLOPT_RETURNTRANSFER => true,
+  CURLOPT_SSL_VERIFYPEER => false,
+  CURLOPT_TIMEOUT => 30,
+  CURLOPT_CUSTOMREQUEST => "GET",
+  CURLOPT_HTTPHEADER => array(
+"app_token: $token",
+"User-Agent: Dalvik/2.1.0 (Linux; U; Android 5.0.2; SM-A300H Build/LRX22G)",
+"Connection: Keep-Alive",
+"Accept-Encoding: gzip"
+)));
+$curlsuccess1 = curl_exec($curlsuccess); curl_close($curlsuccess);
+$json2 = json_decode($curlsuccess1,true);
+$status = $json2["status"];
+$message = $json2["message"];
+$code = $json2["code"];
+if ($status == '1'){
+break;
+}
+	}}}
+//Nhận Lại
+$data = $json["data"]["current_paddy"];
+if($status == "1"){
+echo $res."~".$red."[".$green."$type".$red."]".$res." =>".$green." $uid".$red."                               \n";
+echo $res."~".$red."[".$green."GOM LÚA".$red."]".$res." =>".$green." $message\n";
+echo $res."~".$red."[".$green."LIKE SỐ".$red."]".$res." =>".$green." $remain\n";
+echo $res."~".$red."[".$green."SỐ DƯ".$red."]".$res." =>".$green." $data\n";
+$jobsuc++;
+echo $res."~".$red."[".$green."SỐ JOBS LÀM ĐƯỢC".$red."]".$res." =>".$green." $jobsuc\n";
+echo $res."- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -\n";
+if($code == 1){
+
+
+}}else if (isset($message)){echo $res."~".$red."[".$green."$type".$red."]".$res." =>".$green." $uid".$red." | ".$yellow."Lỗi ".$red."| ".$green."$message \n";
+echo $res."- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -\n";
+}else{echo $res."~".$red."[".$green."$type".$red."]".$res." =>".$green." $uid".$red." | ".$green."Lỗi Không Xác Định                               \n";
+echo $res."- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -\n";
+}
+for ($x = $delay;$x--;$x) {
+    	echo "\r\033[1;93m   (◕︵◕)\033[1;91m ~>       \033[1;92m L      \033[1;91m |\033[1;93m $x\033[1;91m | ";
+        usleep(100000);
+
+        echo "\r\033[1;91m   (◕︵◕)\033[0;33m   ~>     \033[0;37m LO     \033[0;31m |\033[0;33m $x\033[0;31m | ";
+        usleep(100000);
+        echo "\r\033[1;92m   (◕︵◕)\033[0;33m     ~>   \033[0;37m LOA    \033[0;31m |\033[0;33m $x\033[0;31m | ";
+        usleep(100000);
+        echo "\r\033[1;94m   (◕︵◕)\033[0;33m       ~> \033[0;37m LOAD   \033[0;31m |\033[0;33m $x\033[0;31m | ";
+        usleep(100000);
+        echo "\r\033[1;95m   (◕︵◕)\033[0;33m        ~>\033[0;37m LOAD.  \033[0;31m |\033[0;33m $x\033[0;31m | ";
+        usleep(100000);
+        echo "\r\033[1;95m   (◕︵◕)\033[0;33m        ~>\033[0;37m LOAD.. \033[0;31m |\033[0;33m $x\033[0;31m | ";
+        usleep(100000);
+        echo "\r\033[1;95m   (◕︵◕)\033[0;33m        ~>\033[0;37m LOAD...\033[0;31m |\033[0;33m $x\033[0;31m | ";
+        usleep(10000);
+        echo "\r                                          \r";
+        
+    	
+        
+}
+}}}
+    
+    
+    
+    
+    
+    

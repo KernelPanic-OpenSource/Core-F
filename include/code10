@@ -1,0 +1,158 @@
+
+error_reporting(0);
+session_start();
+$ver="1.0";
+$green="\033[1;32m";
+$wait = $green."WAIT";
+$res="\033[0m";
+$red="\033[1;31m";
+$yellow="\033[0;93m";
+$lightblue="\033[1;35m";
+$bluelight="\033[1;34m";
+$blue="\033[1;36m";
+$purple="\e[35m";
+
+
+$i=0;
+$i2=0;
+$dem=0;
+$token=[];
+if (!file_exists('spamtoken.txt')){
+	echo $res."~ ".$green."Bạn Muốn Nhập Bao Nhiêu Token : ";
+$tk2=trim(fgets(STDIN));
+while ($i2  < $tk2){
+	$i2++;
+	echo $res."~ ".$green."Nhập Token Thứ $i2 : ";
+	$took=trim(fgets(STDIN));
+		Array_push($token, $took);
+		if($ten = json_decode(file_get_contents('https://graph.facebook.com/me/?access_token='.$took))->{'name'}){
+}else{echo "$res ~".$yellow."[".$red."×".$yellow."]".$res." =>".$red." Token Die Rồi\r";;exit();}
+echo $green."Bạn Vừa Nhập Vào Facebook : $bluelight $ten ".$red."| ".$green."Token Live\n";
+}
+$js=json_encode($token);
+			$demcki=count($token);
+			$k = fopen("spamtoken.txt","a+");
+fwrite($k, $js);
+fclose($k);
+echo "$res ~".$red."[".$green."✓".$red."]".$res." =>".$green." Đã Nhập $demcki Cookies\n";
+echo "$res ~".$red."[".$green."✓".$red."]".$res." =>".$green." Chạy Lại\n";
+exit();
+}else{
+$jsdec = json_decode(fread(fopen("spamtoken.txt","r"),filesize("spamtoken.txt")),true);
+}
+echo $green."Nhập ID Bài Viết : ";
+$uid=trim(fgets(STDIN));
+$nd=[];
+if (!file_exists('nd.txt')){
+	echo $green."Bạn Muốn Nhập Bao Nhiêu Nội Dung : ";
+$numnd=trim(fgets(STDIN));
+while ($i < $numnd){
+	$i++;
+	echo "Nhập Nội Dung Thứ $i : ";
+$nd1=trim(fgets(STDIN));
+Array_push($nd, $nd1);
+	}
+	$js=json_encode($nd);
+			$demcki=count($token);
+			$k = fopen("nd.txt","a+");
+fwrite($k, $js);
+fclose($k);
+echo "$res ~".$red."[".$green."✓".$red."]".$res." =>".$green." Đã Nhập $demcki Nội Dung\n";
+echo "$res ~".$red."[".$green."✓".$red."]".$res." =>".$green." Chạy Lại'\n";
+exit();
+}else{
+	$nddec = json_decode(fread(fopen("nd.txt","r"),filesize("nd.txt")),true);
+	}
+	
+@system("clear");
+echo "$res ~".$red."[".$green."✓".$red."]".$res." =>".$green." Nhập Time Delay : ";
+$delay=trim(fgets(STDIN));
+@system("clear");
+echo"$banner\n";usleep(100000);
+for ($makep=27;$makep > 0;$makep--){
+echo $res."-";
+usleep(2500);
+echo $red."-";
+}
+echo "\n";
+echo "$res ~".$red."[".$green."✓".$red."]".$res." =>".$green." Tool Auto Spam CMT\n";usleep(100000);
+echo "$res ~".$red."[".$green."✓".$red."]".$res." =>".$bluelight." Bản Quyền : HTK GAME MOBILE\n";usleep(100000);
+echo "$res ~".$red."[".$green."✓".$red."]".$res." =>".$yellow." Facebook : Hà Tuấn Khiêm\n";usleep(100000);
+	while (true){
+		foreach ($jsdec as $access_token){
+			if($ten = json_decode(file_get_contents('https://graph.facebook.com/me/?access_token='.$access_token))->{'name'}){}
+for ($makep=27;$makep > 0;$makep--){
+echo $res."-";
+usleep(2500);
+echo $red."-";
+}
+echo "\n";
+echo $green."Đang Tool Nick : $ten\n";
+for ($makep=38;$makep > 0;$makep--){
+echo $res."-";
+usleep(2500);
+echo $red."-";
+}
+echo "\n";
+	foreach ($nddec as $msg){
+		$ch=curl_init();
+curl_setopt($ch, CURLOPT_IPRESOLVE, CURL_IPRESOLVE_V4 );
+curl_setopt($ch, CURLOPT_TCP_FASTOPEN, true);
+	curl_setopt($ch, CURLOPT_URL, 'https://graph.facebook.com/'.$uid.'/comments');
+	$head[] = "Connection: keep-alive";
+	$head[] = "Keep-Alive: 300";
+	$head[] = "authority: m.facebook.com";
+	$head[] = "ccept-Charset: ISO-8859-1,utf-8;q=0.7,*;q=0.7";
+	$head[] = "accept-language: vi-VN,vi;q=0.9,fr-FR;q=0.8,fr;q=0.7,en-US;q=0.6,en;q=0.5";
+	$head[] = "cache-control: max-age=0";
+	$head[] = "upgrade-insecure-requests: 1";
+	$head[] = "accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9";
+	$head[] = "sec-fetch-site: none";
+	$head[] = "sec-fetch-mode: navigate";
+	$head[] = "sec-fetch-user: ?1";
+	$head[] = "sec-fetch-dest: document";
+	curl_setopt($ch, CURLOPT_USERAGENT, 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/84.0.4147.135 Safari/537.36');
+	curl_setopt($ch, CURLOPT_ENCODING, '');
+	curl_setopt($ch, CURLOPT_COOKIE, $cookie);
+	curl_setopt($ch, CURLOPT_HTTPHEADER, $head);
+	curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+	curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, FALSE);
+	curl_setopt($ch, CURLOPT_TIMEOUT, 60);
+	curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, 60);
+	curl_setopt($ch, CURLOPT_FOLLOWLOCATION, TRUE);
+	curl_setopt($ch, CURLOPT_HTTPHEADER, array('Expect:'));
+	$data = array('message' => $msg,'access_token' => $access_token);
+	curl_setopt($ch, CURLOPT_POST,count($data));
+	curl_setopt($ch, CURLOPT_POSTFIELDS,$data);
+	$access = curl_exec($ch);
+	$acc=json_decode($access);
+	if ($acc->{'error'}->{'code'} == 368){
+echo "$res ~".$yellow."[".$red."×".$yellow."]".$res." =>".$red." Acc $ten Bị Spam !!!\n";
+break;
+}
+$dem++;
+	curl_close($ch);
+	echo $res."~".$red."[$green".$dem."$red]$res => $green".$ten."$red |";echo "$green $msg $green\n";
+	for ($time=$delay;$time>0;$time--)
+{ 
+echo "\r".$res."~".$red."[".$yellow."|".$red."]$blue Vui Lòng Đợi  $time      \r";
+usleep(125000);
+echo "\r".$res."~".$red."[".$yellow."/".$red."]$blue Vui Lòng Đợi $time        \r";
+usleep(125000);
+echo "\r".$res."~".$red."[".$yellow."-".$red."]$blue Vui Lòng Đợi $time          \r";
+usleep(125000);
+echo "\r".$res."~".$red."[".$yellow."\\".$red."]".$red."$blue Vui Lòng Đợi $time          \r";
+usleep(125000);
+echo "\r".$res."~".$red."[".$yellow."|".$red."]$blue Vui Lòng Đợi $time          \r";
+usleep(125000);
+echo "\r".$res."~".$red."[".$yellow."/".$red."]$blue Vui Lòng Đợi $time          \r";
+usleep(125000);
+echo "\r".$res."~".$red."[".$yellow."-".$red."]$blue Vui Lòng Đợi $time          \r";
+usleep(125000);
+echo "\r".$res."~".$red."[".$yellow."\\".$red."]".$red."$blue Vui Lòng Đợi $time          \r";
+usleep(125000);
+}
+echo "$res                                  \r";
+		}
+}}
+  
