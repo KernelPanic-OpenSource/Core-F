@@ -1,9 +1,6 @@
 date_default_timezone_set("Asia/Ho_Chi_Minh");
 session_start();
 $ran = rand(1, 5);
-$trang = "[1;97m";
-$do = "[1;91m";
-$res = "[0;33m";
 $h1f1="\033[0;31m┌─[\033[1;36mKernelPanix\033[0;33m@\033[1;34mCore-F\033[0;31m]─[\033[1;30mCookie-Facebook\033[0;31m]
 └──╼ $ \033[1;37m";
 echo $h1f1;
@@ -36,12 +33,10 @@ while (true) {
     $duoc = 0;
     $duoc = $duoc + 1;
 
-$h1f3="
-\033[0;31m┌─[\033[1;36mKernelPanix\033[0;33m@\033[1;34mCore-F\033[0;31m]─[\033[1;30mMày vừa chọc\033[0;31m]
+$h1f3="\033[0;31m┌─[\033[1;36mKernelPanix\033[0;33m@\033[1;34mCore-F\033[0;31m]─[\033[1;30mMày vừa chọc\033[0;31m]
 └──╼ $ \033[1;37mID: $oK";
     echo $h1f3;
-echo "
-\033[0;31m┌─[\033[1;36mKernelPanix\033[0;33m@\033[1;34mCore-F\033[0;31m]─[\033[1;30mDelay Tí\033[0;31m]
+echo "\033[0;31m┌─[\033[1;36mKernelPanix\033[0;33m@\033[1;34mCore-F\033[0;31m]─[\033[1;30mDelay Tí\033[0;31m]
 └──╼ $ \033[1;37mTime: ";
 for ($time = $delay;$time>=1;$time--) {
      echo $time;
