@@ -5,32 +5,14 @@ $ran = rand(1, 5);
 $trang = "[1;97m";
 $do = "[1;91m";
 $res = "[0;33m";
-system("clear");
-for ($v = 0;$v <= 14;$v++) {
-    echo $trang . "- ";
-    usleep(10000);
-    echo $trang . "- ";
-    usleep(10000);
-}
+";
 echo "
 ";
-echo "[1;37m~[1;31m[[1;32m✓[1;31m][1;37m => [1;33mTool Auto Chọc Bạn Bè Facebook
-";
-echo "[1;37m~[1;31m[[1;32m✓[1;31m][1;37m => [1;32mBản Quyền : [1;33mHTK GAME MOBILE
-";
-
-
-echo "[1;37m~[1;31m[[1;32m✓[1;31m][1;37m => [1;31mYoutube [1;94m: HTK GAME MOBILE/Khiêm Tool[1;34m
-";
-for ($v = 0;$v <= 14;$v++) {
-    echo $trang . "- ";
-    usleep(10000);
-    echo $trang . "- ";
-    usleep(10000);
-}
-echo "
-";
-echo "[1;37m~[1;31m[[1;32m✓[1;31m][1;37m => [1;32mCookie FaceBook : ";
+$h1="
+\033[0;31m┌─[\033[1;36mKernelPanix\033[0;33m@\033[1;34mCore-F\033[0;31m]─[\033[1;30m~\033[0;31m]
+└──╼ $ \033[1;37m";
+echo $h1
+echo "Cookie FaceBook : ";
 $cookie = trim(fgets(STDIN));
 for ($v = 0;$v <= 14;$v++) {
     echo $trang . "- ";
@@ -40,7 +22,7 @@ for ($v = 0;$v <= 14;$v++) {
 }
 echo "
 ";
-echo "[1;37m~[1;31m[[1;32m✓[1;31m][1;37m => [1;32mDelay : ";
+echo $h1;
 $delay = trim(fgets(STDIN));
 system('clear');
 for ($v = 0;$v <= 14;$v++) {
