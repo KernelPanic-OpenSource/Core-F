@@ -42,5 +42,6 @@ echo "
 for ($time = $delay;$time>=1;$time--) {
      echo $time;
      sleep(1);
+     echo " ";
 }
 }
