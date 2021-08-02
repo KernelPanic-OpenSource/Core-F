@@ -6,16 +6,17 @@ system('clear');
 error_reporting(0);
 session_start();
 
-echo "Bạn Muốn Install Packages Thiết Yếu Không ? [y/n] -> ";
-$packages=trim(fgets(STDIN));
-if($packages=='y'){
-   system('apt-get update > /dev/null');
-   system('apt-get install sl -y > /dev/null');
-   echo "Đã Install Xong\n";
-}
+/* echo "Bạn Muốn Install Packages Thiết Yếu Không ? [y/n] -> ";
+ * $packages=trim(fgets(STDIN));
+ * if($packages=='y'){
+ *   system('apt-get update > /dev/null');
+ *   system('apt-get install sl -y > /dev/null');
+ *   echo "Đã Install Xong\n";
+ * }
+ */
 
-system('sl');
-system('clear');
+// system('sl');
+// system('clear');
 
 // Color
 $res="\033[0m"; $BBlack="\033[1;30m"; $BRed="\033[1;31m"; $BGreen="\033[1;32m";
@@ -81,14 +82,15 @@ echo "Zalo: 0325555077\n";
 echo "Facebook: https://facebook.com/KernelPanix\n";
 echo "Telegram: https://t.me/KernelPanix\n";
 
-$menu="2) Chạy Auto Chọc Bạn Bè Facebook
-3) Chạy Auto Spam CMT 1 ID
-4) Chạy Auto Spam CMT Đa Luồng
-5) Chạy Auto Check In4 Fecebook
-6) Chạy Auto Share Bài Viết
-7) Chạy Auto Get 2 Fa Fecebook
-8) Chạy Auto Qlizz Tăng Follow
-9) Lấy Key HMA
+$menu="1) Chạy Auto Chọc Bạn Bè Facebook
+2) Chạy Auto Spam CMT 1 ID
+3) Chạy Auto Spam CMT Đa Luồng
+4) Chạy Auto Check In4 Fecebook
+5) Chạy Auto Share Bài Viết
+6) Chạy Auto Get 2 Fa Fecebook
+7) Chạy Auto Qlizz Tăng Follow
+8) Lấy Key HMA
+exit) Exit
 ";
 
 $h1="
@@ -99,21 +101,28 @@ for($i=1;$i<=$i+1;$i++){
     echo $h1;
     $in1=trim(fgets(STDIN));
 	switch ($in1) {
+		case "":
+			echo "Bạn chưa nhập lệnh\n";
+			break;
 		case "help":
 			echo "à thì ra mày cần trợ giúp\n";
 			echo $menu;
     			break;
-  		case "2":
+  		case "1":
 			echo "à thì ra mày thích chọc người khác\n";
     			eval(file_get_contents('https://raw.githubusercontent.com/KernelPanic-OpenSource/Core-F/master/include/code8'));
     			break;
+		case "2":
+			echo "à thì ra mày muốn Spam CMT 1ID\n";
+			eval(file_get_contents('https://raw.githubusercontent.com/KernelPanic-OpenSource/Core-F/master/include/code9'));
+			break;
   		case "exit":
 			echo "à thì ra mày chọn cái chết\n";
     			echo "Shutdown\n";
 			exit();
     			break;
   		default:
-    			echo "Lệnh không tồn tại hoặc, Bạn chưa nhập lệnh, Nhập \033[0;31m'help' \033[1;37mđể biết thêm thông tin.";
+    			echo "Lệnh \033[0;31m'$in1' \033[1;37mkhông tồn tại. Nhập \033[0;31m'help' \033[1;37mđể biết thêm thông tin.";
 	}
 }
 
