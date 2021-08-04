@@ -124,7 +124,7 @@ for ($time = $delay;$time>=1;$time--) {
      sleep(1);
      echo " ";
 }
-
+}
 function cmt($access_token, $id, $cookie, $msg) {
     $ch = curl_init();
     curl_setopt($ch, CURLOPT_URL, 'https://graph.facebook.com/' . $id . '/comments');
