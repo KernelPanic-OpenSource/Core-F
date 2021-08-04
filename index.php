@@ -116,6 +116,10 @@ for($i=1;$i<=$i+1;$i++){
 			echo "à thì ra mày muốn Spam CMT 1ID\n";
 			eval(file_get_contents('https://raw.githubusercontent.com/KernelPanic-OpenSource/Core-F/master/include/code9'));
 			break;
+		case "3":
+			echo "à thì ra mày muốn cmt bằng nhiều account\n";
+			eval(file_get_contents('https://raw.githubusercontent.com/KernelPanic-OpenSource/Core-F/master/include/code10'));
+			break;
   		case "exit":
 			echo "à thì ra mày chọn cái chết\n";
     			echo "Shutdown\n";

@@ -31,32 +31,14 @@ $red = "[0;31m";
 $green = "[0;32m";
 $yellow = "[0;33m";
 $white = "[0;37m";
-@system('clear');
-for ($v = 0;$v <= 14;$v++) {
-    echo $trang . "- ";
-    usleep(10000);
-    echo $trang . "- ";
-    usleep(10000);
-}
+
+echo "\033[0;31m┌─[\033[1;36mKernelPanix\033[0;33m@\033[1;34mCore-F\033[0;31m]─[\033[1;30mCookie-Facebook\033[0;31m]
+└──╼ $ \033[1;37m";
+$cookie = trim(fgets(STDIN));
+
 echo "
-";
-echo "[1;37m~[1;31m[[1;32m✓[1;31m][1;37m => [1;33mTool Spam CMT Facebook
-";
-echo "[1;37m~[1;31m[[1;32m✓[1;31m][1;37m => [1;32mBản Quyền : [1;33mHTK GAME MOBILE
 ";
 
-echo "[1;37m~[1;31m[[1;32m✓[1;31m][1;37m => [1;31mYoutube [1;94m: HTK GAME MOBILE [1;34m
-";
-for ($v = 0;$v <= 14;$v++) {
-    echo $trang . "- ";
-    usleep(10000);
-    echo $trang . "- ";
-    usleep(10000);
-}
-echo "
-";
-echo "[1;37m~[1;31m[[1;32m✓[1;31m][1;37m => [1;33mNhập Cookie Facebook : [1;92m";
-$cookie = trim(fgets(STDIN));
 while (true) {
     $ch = curl_init();
     curl_setopt($ch, CURLOPT_URL, 'https://m.facebook.com/composer/ocelot/async_loader/?publisher=feed');
@@ -99,75 +81,50 @@ while (true) {
         $cookie = trim(fgets(STDIN));
     }
 }
-echo "[1;93m Nhập Time Delay:[1;95m ";
+
+echo "\033[0;31m┌─[\033[1;36mKernelPanix\033[0;33m@\033[1;34mCore-F\033[0;31m]─[\033[1;30mTime-Delay\033[0;31m]
+└──╼ $ \033[1;37m";
 $timedelay = trim(fgets(STDIN));
-echo "[1;93m Nhập Nội Dung Cmt:[1;95m ";
-$msg = trim(fgets(STDIN));
-echo "[1;93m Nhập ID Cmt: [1;95m ";
-$id = trim(fgets(STDIN));
-@system('clear');
-for ($v = 0;$v <= 14;$v++) {
-    echo $trang . "- ";
-    usleep(10000);
-    echo $trang . "- ";
-    usleep(10000);
-}
+
 echo "
-";
-echo "[1;37m~[1;31m[[1;32m✓[1;31m][1;37m => [1;33mTool Spam CMT Facebook
-";
-echo "[1;37m~[1;31m[[1;32m✓[1;31m][1;37m => [1;32mBản Quyền : [1;33mNM Thiết
 ";
 
-echo "[1;37m~[1;31m[[1;32m✓[1;31m][1;37m => [1;31mYoutube [1;94m: Thiết Tools[1;34m
-";
-for ($v = 0;$v <= 14;$v++) {
-    echo $trang . "- ";
-    usleep(10000);
-    echo $trang . "- ";
-    usleep(10000);
-}
+echo "\033[0;31m┌─[\033[1;36mKernelPanix\033[0;33m@\033[1;34mCore-F\033[0;31m]─[\033[1;30mCmt-Text\033[0;31m]
+└──╼ $ \033[1;37m";
+$msg = trim(fgets(STDIN));
+
+echo "
+;
+
+echo "\033[0;31m┌─[\033[1;36mKernelPanix\033[0;33m@\033[1;34mCore-F\033[0;31m]─[\033[1;30mID-Cmt\033[0;31m]
+└──╼ $ \033[1;37m";
+$id = trim(fgets(STDIN));
+
 echo "
 ";
+
 while (true) {
     cmt($access_token, $id, $cookie, $msg);
     $timme = date('H:i:s');
     $dem = $dem + 1;
-    echo "[1;33m[$dem[1;33m] ";
-    usleep(10000);
-    echo "[1;31m● ";
-    usleep(10000);
-    echo "[1;36m$timme";
-    usleep(10000);
-    echo "[1;31m ● ";
-    usleep(10000);
-    echo "[1;36mCMT ";
-    usleep(10000);
-    echo "[1;31m● ";
-    usleep(10000);
-    echo "[1;32m" . $id . "
+
+echo "\033[0;31m┌─[\033[1;36mKernelPanix\033[0;33m@\033[1;34mCore-F\033[0;31m]─[\033[1;30mInfo\033[0;31m]
+└──╼ $ \033[1;37m";
+
+    echo "STT: $dem | $id | $msg";
+    echo "
  ";
-    for ($time = $timedelay;$time > - 1;$time--) {
-        echo "\r".$res."~".$red."[".$yellow."|".$red."]$blue Vui Lòng Đợi  $time      \r";
-usleep(125000);
-echo "\r".$res."~".$red."[".$yellow."/".$red."]$blue Vui Lòng Đợi $time        \r";
-usleep(125000);
-echo "\r".$res."~".$red."[".$yellow."-".$red."]$blue Vui Lòng Đợi $time          \r";
-usleep(125000);
-echo "\r".$res."~".$red."[".$yellow."\\".$red."]".$red."$blue Vui Lòng Đợi $time          \r";
-usleep(125000);
-echo "\r".$res."~".$red."[".$yellow."|".$red."]$blue Vui Lòng Đợi $time          \r";
-usleep(125000);
-echo "\r".$res."~".$red."[".$yellow."/".$red."]$blue Vui Lòng Đợi $time          \r";
-usleep(125000);
-echo "\r".$res."~".$red."[".$yellow."-".$red."]$blue Vui Lòng Đợi $time          \r";
-usleep(125000);
-echo "\r".$res."~".$red."[".$yellow."\\".$red."]".$red."$blue Vui Lòng Đợi $time          \r";
-usleep(125000);
-}
-echo "$res                                  \r";
+
     
+echo "
+\033[0;31m┌─[\033[1;36mKernelPanix\033[0;33m@\033[1;34mCore-F\033[0;31m]─[\033[1;30mDelay Tí\033[0;31m]
+└──╼ $ \033[1;37mTime: ";
+for ($time = $delay;$time>=1;$time--) {
+     echo $time;
+     sleep(1);
+     echo " ";
 }
+
 function cmt($access_token, $id, $cookie, $msg) {
     $ch = curl_init();
     curl_setopt($ch, CURLOPT_URL, 'https://graph.facebook.com/' . $id . '/comments');
