@@ -1,7 +1,7 @@
 
 session_start();
 date_default_timezone_set("Asia/Ho_Chi_Minh");
-error_reporting(0);
+# error_reporting(0);
 $res = "[0m";
 $red = "[1;91m";
 $green = "[1;92m";
@@ -94,7 +94,7 @@ echo "\033[0;31m┌─[\033[1;36mKernelPanix\033[0;33m@\033[1;34mCore-F\033[0;31
 $msg = trim(fgets(STDIN));
 
 echo "
-;
+";
 
 echo "\033[0;31m┌─[\033[1;36mKernelPanix\033[0;33m@\033[1;34mCore-F\033[0;31m]─[\033[1;30mID-Cmt\033[0;31m]
 └──╼ $ \033[1;37m";
@@ -111,7 +111,7 @@ while (true) {
 echo "\033[0;31m┌─[\033[1;36mKernelPanix\033[0;33m@\033[1;34mCore-F\033[0;31m]─[\033[1;30mInfo\033[0;31m]
 └──╼ $ \033[1;37m";
 
-    echo "STT: $dem | $id | $msg";
+    echo "STT: $dem - $id - $msg";
     echo "
  ";
 

@@ -3,7 +3,7 @@
 system('termux-wake-lock');
 system('clear');
 
-error_reporting(0);
+# error_reporting(0);
 session_start();
 
 /* echo "Bạn Muốn Install Packages Thiết Yếu Không ? [y/n] -> ";
